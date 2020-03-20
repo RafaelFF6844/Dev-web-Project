@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+session_start(); 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,7 @@
 </head>
 <body>  
     <!-- Button to open the modal login form -->
-    <button onclick="document.getElementById('id01').style.display='block'" style="width: 100px">Login</button>
+    <button onclick="login()" style="width: 100px">Login</button>
 
     <!-- The Modal -->
     <div id="id01" class="modal">
@@ -19,20 +21,20 @@
         class="close" title="Close Modal">&times;</span>
 
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php" style="width: 30%">
+        <form class="modal-content animate" action="action_page.php" method="POST" style="width: 30%">
             <div class="imgcontainer">
                 <h3>Administrador</h3>
                 <img src="../Resources/avatar.png" alt="Avatar" class="avatar" style="width: 25%">
             </div>
 
             <div class="container">
-                <label for="uname"><b>Correo</b></label>
-                <input type="text" placeholder="Introduzca el correo" name="uname" required>
+                <label for="Correo"><b>Correo</b></label>
+                <input type="text" placeholder="Introduzca el correo" name="Correo" required>
 
-                <label for="psw"><b>Contraseña</b></label>
-                <input type="password" placeholder="Introduzca la contraseña" name="psw" required>
+                <label for="Contra"><b>Contraseña</b></label>
+                <input type="password" placeholder="Introduzca la contraseña" name="Contra" required>
 
-                <button type="submit">Ingresar</button>
+                <button type="submit" name="Login">Ingresar</button>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
@@ -46,6 +48,22 @@
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+    }
+
+    function login(){
+        <?php if(!empty($_SESSION['message'])){ ?>
+            var bool = '<?php echo $_SESSION['message']?>';
+        <?php }
+        else{?>
+            var bool = 'failed';
+        <?php } ?>
+         
+        if(bool == "success"){
+            alert("El usuario ya ha ingresado");
+        } 
+        else if(bool == "failed" || bool == null){
+            document.getElementById('id01').style.display='block';
         }
     }
     </script>
