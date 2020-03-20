@@ -22,7 +22,7 @@
         <form class="modal-content animate" action="/action_page.php" style="width: 30%">
             <div class="imgcontainer">
                 <h3>Administrador</h3>
-                <img src="avatar.png" alt="Avatar" class="avatar" style="width: 25%">
+                <img src="../Resources/avatar.png" alt="Avatar" class="avatar" style="width: 25%">
             </div>
 
             <div class="container">
