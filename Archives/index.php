@@ -29,8 +29,8 @@ session_start();
             </div>
 
             <div class="container">
-                <label for="Correo"><b>Correo</b></label>
-                <input type="text" placeholder="Introduzca el correo" name="Correo" required>
+                <label for="Usuario"><b>Usuario</b></label>
+                <input type="text" placeholder="Introduzca el usuario" name="Usuario" required>
 
                 <label for="Contra"><b>Contraseña</b></label>
                 <input type="password" placeholder="Introduzca la contraseña" name="Contra" required>

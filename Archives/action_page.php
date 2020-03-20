@@ -8,9 +8,9 @@ $conn = mysqli_connect(
 );
 
 if(isset($_POST['Login'])){
-    $Correo = $_POST['Correo'];
+    $Usuario = $_POST['Usuario'];
     $Contra = $_POST['Contra'];
-    $query = "select * from usuarios where Correo = '$Correo' and Clave = '$Contra'";
+    $query = "select * from usuarios where Correo = '$Usuario' and Clave = '$Contra'";
     $result = mysqli_query($conn, $query);  
     
     if(!$result){
@@ -32,6 +32,19 @@ if(isset($_POST['Logout'])){
 }
 
 if(isset($_POST['Register'])){
-    
+    $Usuario = $_POST['Usuario'];
+    $Contra = $_POST['Contra'];
+    $query = "INSERT INTO usuarios(Correo, Clave) VALUES ('$Usuario', '$Contra')";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        $_SESSION['message'] = 'Datos no guardados';
+        $_SESSION['message-type'] = 'danger';
+    }
+    else{
+        $_SESSION['message'] = 'Datos guardados correctamente';
+        $_SESSION['message-type'] = 'success';
+    }
+    header("Location: Admin.php");
 }
 ?>

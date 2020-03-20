@@ -10,6 +10,11 @@
     <title>Document</title>
 </head>
 <body>
+    <?php 
+        if($_SESSION['status'] == 'failed'){
+            header("Location: index.php");
+        }
+    ?>
     <nav class="navbar navbar-dark bg-dark">
         <li class="nav-item dropdown">
             <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,7 +22,7 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <button class="btn btn-info btn-block" name = "Register" onclick="document.getElementById('id01').style.display='block'">Nuevo usuario</button>
+                <button class="btn btn-info btn-block" name = "Register" onclick="document.getElementById('id01').style.display='block'">Nuev o usuario</button>
                 
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Another action</a>
@@ -34,6 +39,16 @@
         </form>
     </nav>
 
+    <?php if(isset($_SESSION['message'])) { ?>
+        <div class="alert alert-<?php echo $_SESSION['message-type'] ?> alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION['message'];
+            unset($_SESSION['message'])?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php } ?>
+
     <!-- The Modal -->
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'"
@@ -47,13 +62,13 @@
             </div>
 
             <div class="container">
-                <label for="Correo"><b>Correo:</b></label>
-                <input type="text" placeholder="Introduzca el correo" name="Correo" required>
+                <label for="Correo"><b>Usuario:</b></label>
+                <input type="text" placeholder="Introduzca el usuario" name="Usuario" required>
                 <br>
                 <label for="Contra"><b>Contraseña:</b></label>
                 <input type="password" placeholder="Introduzca la contraseña" name="Contra" required>
                 <br>
-                <button type="submit" class="btn btn-success" name="Login">Ingresar</button>
+                <button type="submit" class="btn btn-success" name="Register">Ingresar</button>
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancelar</button>
     
             </div>
