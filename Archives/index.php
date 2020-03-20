@@ -13,7 +13,7 @@ session_start();
 </head>
 <body>  
     <!-- Button to open the modal login form -->
-    <button onclick="login()" style="width: 100px">Login</button>
+    <button class="btn btn-success" onclick="login()" style="width: 100px">Login</button>
 
     <!-- The Modal -->
     <div id="id01" class="modal">
@@ -38,7 +38,7 @@ session_start();
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancelar</button>
             </div>
         </form>
     </div>
@@ -52,8 +52,8 @@ session_start();
     }
 
     function login(){
-        <?php if(!empty($_SESSION['message'])){ ?>
-            var bool = '<?php echo $_SESSION['message']?>';
+        <?php if(!empty($_SESSION['status'])){ ?>
+            var bool = '<?php echo $_SESSION['status']?>';
         <?php }
         else{?>
             var bool = 'failed';

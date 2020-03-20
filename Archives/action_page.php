@@ -14,14 +14,20 @@ if(isset($_POST['Login'])){
     $result = mysqli_query($conn, $query);  
 
     if(!$result){
-        $_SESSION['message'] = 'failed';
+        $_SESSION['status'] = 'failed';
+        header("Location: index.php");
     }
     else{
         $nr = mysqli_num_rows($result);
         if($nr == 0){
-            $_SESSION['message'] = 'success';
+            $_SESSION['status'] = 'success';
+            header("Location: Admin.php");
         }
     }
-    header("Location:login.php");
+}
+
+if(isset($_POST['Logout']))
+    $_SESSION['status'] = 'failed';
+    header("Location: index.php");{
 }
 ?>
