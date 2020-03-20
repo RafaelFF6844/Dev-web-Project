@@ -12,6 +12,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>  
+    <a><?php echo $_SESSION['status']?></a>
     <!-- Button to open the modal login form -->
     <button class="btn btn-success" onclick="login()" style="width: 100px">Login</button>
 
@@ -60,9 +61,9 @@ session_start();
         <?php } ?>
          
         if(bool == "success"){
-            alert("El usuario ya ha ingresado");
+            alert("el usuario ya ha ingresado");
         } 
-        else if(bool == "failed" || bool == null){
+        else if(bool = "failed" || bool == null){
             document.getElementById('id01').style.display='block';
         }
     }
