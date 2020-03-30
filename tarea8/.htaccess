@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /tarea8
+RewriteCond %{RESQUET_FILENAME} !-f
+RewriteCond %{RESQUET_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+ErrorDocument 404/index.php
+</IfModule>
