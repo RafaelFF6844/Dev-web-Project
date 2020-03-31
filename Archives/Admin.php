@@ -1,4 +1,13 @@
-<?php session_start();?>
+<?php session_start();
+
+$conn = mysqli_connect(
+    'localhost',
+    'root',
+    '',
+    'proyecto'
+);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <!--Admin.css-->
-    <link rel="stylesheet" href="Admin.css" >
+    <link rel="stylesheet" href="Adm.css" >
    
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,6 +32,16 @@
    
     <!--Titulo-->
     <title>Administrador</title>
+
+    <style type="text/css">
+        #global {
+	        height: 270px;
+	        width: auto;
+	        border: 1px solid #ddd;
+	        background: #f1f1f1;
+	        overflow-y: scroll;
+        }
+    </style>
 </head>
 <body> 
     <?php 
@@ -66,19 +85,97 @@
     </div>
     <?php } ?>
 
-    <div  id="ext">
+    <!-- Botones -->
+    <div align = "center" style="margin-left: 37%">
        <div style="float: left" align="center"> 
             <a class="btn btn-info" onclick="edit()" data-toggle="modal" data-target="#Modal2">
-                <i class="far fa-newspaper fa-3x" id="news"></i><br>
-                <font size="4" id="fnews">Agregar noticia</font>
+                <i class="far fa-newspaper fa-2x" id="news"></i><br>
+                <font size="3" id="fnews">Agregar noticia</font>
             </a>
        </div>
        <div style="float: left">
             <a class="btn btn-warning" onclick="edit2()" data-toggle="modal" data-target="#Modal3">
-                <i class="far fa-address-card fa-3x" id="cases"></i><br>
-                <font size="4" id="fcases">Agregar caso</font>       
+                <i class="far fa-address-card fa-2x" id="cases"></i><br>
+                <font size="3" id="fcases">Agregar caso</font>       
             </a>
        </div>
+       <div style="float: left">
+            <a class="btn btn-info" onclick="edit2()" data-toggle="modal" data-target="#Modal3">
+                <i class="fas fa-users fa-2x"></i></i><br>
+                <font size="3" id="fcases">Agregar caso</font>       
+            </a>
+       </div>
+    </div>
+
+    <!-- Casos -->
+    <div align = "center" id="global" style="float: left;position:fixed; margin-left:750px; margin-top: 150px">
+        <table class="table" style="width: auto; text-align: center; ">
+            <thead>
+                <tr class="table-active"><th scope="col" colspan="5" style="text-align: center"><a >Casos</a></td></tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Ubicacion</th>
+                <th scope="col">Comentario</th>
+                <th scope="col">Acciones</th>
+            </thead>
+            <tbody class="table-striped">
+                <?php 
+                $querys = "select * from casos";
+                $result_task = mysqli_query($conn, $querys);
+
+                while($row = mysqli_fetch_array($result_task)){ ?>    
+                <tr>
+                    <td><?php echo $row['Nombre'] . " " . $row['Apellido']?></td>
+                    <td><?php echo $row['Cedula']?></td>
+                    <td><?php echo $row['Ciudad'] . ", " . $row['Pais']?></td>
+                    <td><?php echo $row['Comentario']?></td>
+                    <td>
+                        <a class="btn btn-danger" onclick="eliminar(<?php echo $row['ID'] ?>)">
+                            <i class="fas fa-trash-alt"></i><br>
+                        </a> 
+                        <a class="btn btn-info" onclick="editar(<?php echo $row['ID'] ?>)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a> 
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Noticias -->
+    <div align = "center" id="global" style="float: left; margin-left: 50px; position:fixed; margin-top: 150px">
+        <table class="table" style="width: auto; text-align: center; ">
+            <thead>
+                <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Noticias</a></td></tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Resumen</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Acciones</th>
+            </thead>
+            <tbody class="table-striped">
+                <?php 
+                $querys = "select * from casos";
+                $result_task = mysqli_query($conn, $querys);
+
+                while($row = mysqli_fetch_array($result_task)){ ?>    
+                <tr>
+                    <td><?php echo $row['Nombre'] . " " . $row['Apellido']?></td>
+                    <td><?php echo $row['Cedula']?></td>
+                    <td><?php echo $row['Ciudad'] . ", " . $row['Pais']?></td>
+                    <td><?php echo $row['Comentario']?></td>
+                    <td>
+                        <a class="btn btn-danger" onclick="eliminar(<?php echo $row['ID'] ?>)">
+                            <i class="fas fa-trash-alt"></i><br>
+                        </a> 
+                        <a class="btn btn-info" onclick="editar(<?php echo $row['ID'] ?>)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a> 
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
     </div>
 
     <!-- The Modal -->
@@ -87,7 +184,7 @@
         class="close" title="Close Modal">&times;</span>
 
         <!-- Modal Content -->
-        <form class="modal-content animate" action="action_page.php" method="POST" style="width: 21%">
+        <form class="modal-content animate" action="action_page.php" method="POST" style="width: 20%">
             <div class="imgcontainer" align = "center">
                 <h3 align = "center">Nuevo Usuario</h3>
                 <img src="../Resources/avatar.png" alt="Avatar" class="avatar" style="width: 25%" align = "center">
@@ -208,6 +305,8 @@
             </div>
         </div>
     </div>
+
+
     <script>
     var modal = document.getElementById('id01');
     window.onclick = function(event) {
@@ -218,23 +317,20 @@
     
     function testData(event) {
         console.log(event.target.files[0]);
-        console.log('Esto funciona');
     }
     function edit(){
-        document.getElementById('news').className='far fa-newspaper fa-7x';
-        document.getElementById('ext').style.marginLeft="0%";
+        document.getElementById('news').className='far fa-newspaper fa-6x';
         document.getElementById('fnews').size='4';
  
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1';
+        document.getElementById('fcases').size='1'
     }
     
     function edit2(){
-        document.getElementById('cases').className='far fa-address-card fa-7x';
+        document.getElementById('cases').className='far fa-address-card fa-6x';
         document.getElementById('fcases').size='4';
-        document.getElementById('ext').style.marginLeft="0%";
 
-        document.getElementById('news').className='far fa-newspaper fa-3x';
+        document.getElementById('news').className='far fa-newspaper fa-x';
         document.getElementById('fnews').size='1';
     }
     </script>
