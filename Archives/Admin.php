@@ -21,10 +21,10 @@
     <!--JQuery-->
     <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
    
+    <!--Titulo-->
     <title>Administrador</title>
 </head>
-<body>
-    
+<body> 
     <?php 
         if(isset($_SESSION['status'])){
             if($_SESSION['status'] == 'failed'){
@@ -51,7 +51,7 @@
 
         <a href="Admin.php" class="navbar-brand">Administradores</a>
 
-        <form action="action_page.php" method="POST" align = "right" style="margin-left: 0%; background: rgba(245, 252, 145, 0)ñ"> 
+        <form action="action_page.php" method="POST" align = "right" style="margin-left: 0%; background: rgba(245, 252, 145, 0)"> 
             <button type="submit" class="btn btn-danger" name = "Logout" >Log out</button>
         </form>
     </nav>
@@ -238,6 +238,5 @@
         document.getElementById('fnews').size='1';
     }
     </script>
-
 </body>
 </html>
