@@ -3,8 +3,8 @@
 define('HOSTNAME','localhost');
 define('USERNAME','root');
 define('PASSWORD','');
-define('DATABASE','incidentes');
+define('DATABASE','casos');
 
 
 // DATOS PARA LA BASE
-define('BASEURL','http://localhost/tarea8');
+define('BASEURL','http://localhost/Archives');

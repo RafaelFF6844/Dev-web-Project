@@ -29,8 +29,8 @@
   marker.bindPopup("<b>Caso "+id+"!</b><br>"+description+".").openPopup();
   function onMapClick(e) {
       alert("Usted esta en RD " + e.latlng);
-      document.getElementById("latitud").value=e.latlng.lat.toString();
-        document.getElementById("logitud").value=e.latlng.lng.toString();
+      document.getElementById("Latitud").value=e.latlng.lat.toString();
+        document.getElementById("Longitud").value=e.latlng.lng.toString();
   }
   }
 
@@ -42,11 +42,11 @@
 
 <?php
 $CI =& get_instance();
-$rs = $CI->db->get('registrar')->result_array();
+$rs = $CI->db->get('casos')->result_array();
 
 foreach($rs as $fila){
 echo "
-  var marker = L.marker([{$fila['latitud']},{$fila['logitud']}]).addTo(mymap);
+  var marker = L.marker([{$fila['Latitud']},{$fila['Longitud']}]).addTo(mymap);
   marker.bindPopup('<b>Caso'+{$fila['id']}+'!</b><br>'+'{$fila['descripcion']}'+'.').openPopup();
   function onMapClick(e) {
       alert('You clicked the map at ' + e.latlng);
@@ -76,7 +76,7 @@ function onMapClick(e) {
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(mymap);
 
-        document.getElementById("latitud").value="hola"+e.latlng.toString();
+        document.getElementById("Latitud").value="hola"+e.latlng.toString();
 }
 
 mymap.on('click', onMapClick);
@@ -92,8 +92,8 @@ mymap.on('click', onMapClick);
           .setLatLng(e.latlng)
           .setContent("Usted esta en RD "+e.latlng.toString())
           .openOn(mymap)
-          document.getElementById("latitud").value=e.latlng.lat.toString();
-            document.getElementById("logitud").value=e.latlng.lng.toString();
+          document.getElementById("Latitud").value=e.latlng.lat.toString();
+            document.getElementById("Longitud").value=e.latlng.lng.toString();
       }else{
         popup
           .setLatLng(e.latlng)

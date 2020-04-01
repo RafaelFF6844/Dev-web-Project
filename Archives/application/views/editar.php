@@ -14,10 +14,10 @@ if($_POST){
 if($map ->id >0){
 
       $CI->db->where('id',$map->id);
-    $CI->db->update('registrar',$map);
+    $CI->db->update('casos',$map);
 
   }else{
-         $CI->db->insert('registrar',$map);
+         $CI->db->insert('casos',$map);
           $map->id=$CI->db->insert_id();
     }
 
@@ -44,7 +44,6 @@ if($map ->id >0){
     <span class="input-group-text" id="inputGroup-sizing-lg">Fecha</span>
   </div>
 
-
   <input type="date" name="fecha" required id="fecha"  required class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
   <input type="hidden"  name='id'/>
   <div class="text-right">
@@ -63,40 +62,66 @@ if($map ->id >0){
   <div class="input-group-prepend" >
     <span class="input-group-text" id="inputGroup-sizing-default" >CEDULA</span>
   </div>
-  <input type="text" name="cedula" required id="cedula" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Cedula" required id="Cedula" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
 
 </div>
 
-
-  <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Tipo del Incidente:</label>
+<div class="col-xs-4">
+      <div class="input-group form-group-sm mb-3" >
+  <div class="input-group-prepend" >
+    <span class="input-group-text" id="inputGroup-sizing-default" >Nombre</span>
   </div>
-  <select class="custom-select"  name="tipo" required id="inputGroupSelect01">
-  <option value="Compra de Cedula">Compra de Cedula</option>
-<option value="Violencia">Violencia</option>
-<option value="Fraude">Fraude</option>
-<option value="Muerte">Muerte</option>
-<option value="Otros">Otros</option>
-  </select>
+  <input type="text" name="Nombre" required id="Nombre" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
+
 </div>
 
+
+ 
     
 <hr>
   <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">MESA</span>
+    <span class="input-group-text" id="inputGroup-sizing-lg">Apellido</span>
   </div>
-  <input type="text" name="mesa" required id="mesa" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Apellido" required id="Apellido" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 </hr>
+
+
+<div class="col-xs-4">
+      <div class="input-group form-group-sm mb-3" >
+  <div class="input-group-prepend" >
+    <span class="input-group-text" id="inputGroup-sizing-default" >Nacimiento</span>
+  </div>
+  <input type="date" name="Nacimiento" required id="Nacimiento" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
+
+</div>
+
+
+<div class="col-xs-4">
+      <div class="input-group form-group-sm mb-3" >
+  <div class="input-group-prepend" >
+    <span class="input-group-text" id="inputGroup-sizing-default" >Pais</span>
+  </div>
+  <input type="text" name="Pais" required id="Pais" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
+
+</div>
+
+<div class="col-xs-4">
+      <div class="input-group form-group-sm mb-3" >
+  <div class="input-group-prepend" >
+    <span class="input-group-text" id="inputGroup-sizing-default" >Ciudad</span>
+  </div>
+  <input type="text" name="Ciudad" required id="Ciudad" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
+
+</div>
  
 <hr>
   <div class="input-group input-group-lg">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">LATITUD</span>
   </div>
-  <input type="text" name="latitud" required id="latitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Latitud" required id="Latitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 </hr>
 
@@ -104,9 +129,9 @@ if($map ->id >0){
 <hr>
   <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">LOGITUD</span>
+    <span class="input-group-text" id="inputGroup-sizing-lg">LONGITUD</span>
   </div>
-  <input type="text" name="logitud" required id="logitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Longitud" required id="Longitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 </hr>
 
@@ -114,19 +139,20 @@ if($map ->id >0){
 <hr>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">DESCRIPCION</span>
+    <span class="input-group-text" id="inputGroup-sizing-lg">Contagio</span>
   </div>
-  <input type="text" name="descripcion" required id="descripcion" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="date" name="Contagio" required id="Contagio" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 </hr>
 
 <hr>
 <div class="input-group input-group-lg">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">HORA</span>
+    <span class="input-group-text" id="inputGroup-sizing-lg">Comentario</span>
   </div>
-  <input type="time" name="hora" required id="descripcion" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Comentario" required id="Comentario" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
+
 </table>
 </div>
 </div>
@@ -152,8 +178,8 @@ if($map ->id >0){
   marker.bindPopup("<b>Caso "+id+"!</b><br>"+description+".").openPopup();
   function onMapClick(e) {
       alert("Usted esta en RD " + e.latlng);
-      document.getElementById("latitud").value=e.latlng.lat.toString();
-        document.getElementById("logitud").value=e.latlng.lng.toString();
+      document.getElementById("Latitud").value=e.latlng.lat.toString();
+        document.getElementById("Longitud").value=e.latlng.lng.toString();
   }
   }
 
@@ -168,8 +194,8 @@ if($map ->id >0){
           .setLatLng(e.latlng)
           .setContent("Usted esta en RD "+e.latlng.toString())
           .openOn(mymap)
-          document.getElementById("latitud").value=e.latlng.lat.toString();
-            document.getElementById("logitud").value=e.latlng.lng.toString();
+          document.getElementById("Latitud").value=e.latlng.lat.toString();
+            document.getElementById("Longitud").value=e.latlng.lng.toString();
       }else{
         popup
           .setLatLng(e.latlng)
