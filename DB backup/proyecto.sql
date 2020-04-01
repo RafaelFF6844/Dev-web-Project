@@ -29,18 +29,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `casos` (
-  `ID` int(11) NOT NULL,
-  `Cedula` varchar(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
-  `Nacimiento` date NOT NULL,
-  `Pais` varchar(255) NOT NULL,
-  `Ciudad` varchar(255) NOT NULL,
-  `Latitud` double NOT NULL,
-  `Longitud` double NOT NULL,
-  `Contagio` date NOT NULL,
-  `Comentario` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `ID` INT(11) NOT NULL,
+  `Cedula` VARCHAR(11) NOT NULL,
+  `Nombre` VARCHAR(50) NOT NULL,
+  `Apellido` VARCHAR(50) NOT NULL,
+  `Nacimiento` DATE NOT NULL,
+  `Pais` VARCHAR(255) NOT NULL,
+  `Ciudad` VARCHAR(255) NOT NULL,
+  `Latitud` DOUBLE NOT NULL,
+  `Longitud` DOUBLE NOT NULL,
+  `Contagio` DATE NOT NULL,
+  `Comentario` TEXT NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `casos`
@@ -58,10 +58,10 @@ INSERT INTO `casos` (`ID`, `Cedula`, `Nombre`, `Apellido`, `Nacimiento`, `Pais`,
 --
 
 CREATE TABLE `usuarios` (
-  `ID` int(11) NOT NULL,
-  `Correo` varchar(255) NOT NULL,
-  `Clave` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `ID` INT(11) NOT NULL,
+  `Correo` VARCHAR(255) NOT NULL,
+  `Clave` VARCHAR(255) NOT NULL
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -95,13 +95,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `casos`
 --
 ALTER TABLE `casos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
