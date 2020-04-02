@@ -47,7 +47,7 @@
 
 
 
-<div id="page-conten" >
+<div id="page-content" >
 
     
 
