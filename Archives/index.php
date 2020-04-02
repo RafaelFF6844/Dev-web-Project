@@ -12,7 +12,6 @@ session_start();
     <title>Document</title>
 </head>
 <body>  
-    <a><?php echo $_SESSION['status']?></a>
     <!-- Button to open the modal login form -->
     <button class="btn btn-success" onclick="login()" style="width: 100px">Login</button>
 
