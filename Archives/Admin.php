@@ -51,29 +51,29 @@ $conn = mysqli_connect(
             }
         }
     ?>
-    <nav class="navbar navbar-dark bg-dark">
-        <li class="nav-item dropdown">
-            <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Menu
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <button class="btn btn-info btn-block" name = "Register" onclick="document.getElementById('id01').style.display='block'">Nuev o usuario</button>
-                
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Another action</a>
-            
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+<div class="page-header">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
         </li>
-
-        <a href="Admin.php" class="navbar-brand">Administradores</a>
-
-        <form action="action_page.php" method="POST" align = "right" style="margin-left: 0%; background: rgba(245, 252, 145, 0)"> 
-            <button type="submit" class="btn btn-danger" name = "Logout" >Log out</button>
-        </form>
-    </nav>
+        <li class="nav-item">
+            <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
+        </li>
+        
+        <li class="nav-item nav-lejos">
+            <a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Ingresar as Admin</a>
+        </li>
+    </ul>
+</div>
     
     <?php if(isset($_SESSION['message1'])) { ?>
     <div class="alert alert-<?php echo $_SESSION['message-type'] ?> alert-dismissible fade show" role="alert">
