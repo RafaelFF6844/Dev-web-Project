@@ -28,7 +28,7 @@ $conn = mysqli_connect(
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!--JQuery-->
-    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../Resources/jquery-3.4.1.min.js"></script>
    
     <!--Titulo-->
     <title>Administrador</title>
@@ -93,7 +93,7 @@ $conn = mysqli_connect(
                 <font size="3" id="fnews">Agregar noticia</font>
             </a>
        </div>
-       <div style="float: left">
+           <div style="float: left">
             <a class="btn btn-warning" onclick="edit2()" data-toggle="modal" data-target="#Modal3">
                 <i class="far fa-address-card fa-2x" id="cases"></i><br>
                 <font size="3" id="fcases">Agregar caso</font>       
@@ -306,15 +306,13 @@ $conn = mysqli_connect(
         </div>
     </div>
 
-
     <script>
     var modal = document.getElementById('id01');
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    }
-    
+    }  
     function testData(event) {
         console.log(event.target.files[0]);
     }
@@ -325,7 +323,6 @@ $conn = mysqli_connect(
         document.getElementById('cases').className='far fa-address-card fa-3x';
         document.getElementById('fcases').size='1'
     }
-    
     function edit2(){
         document.getElementById('cases').className='far fa-address-card fa-6x';
         document.getElementById('fcases').size='4';
