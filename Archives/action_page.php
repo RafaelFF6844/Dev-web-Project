@@ -129,4 +129,31 @@ if(isset($_POST['GuardarCaso'])){
         header("Location: Admin.php");
     }
 }
+
+if(isset($_GET['idB'])){
+    $id = $_GET['idB'];
+    $query = "delete from casos where id = $id";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query failed");
+    }
+ 
+    header("Location:Admin.php");
+}
+
+if(isset($_GET['idE'])){
+    $id = $_GET['id'];
+    $query = "delete from Registro where id = $id";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query failed");
+    }
+ 
+    header("Location:index.php");
+}
+if(isset($_POST['FrmNtc'])){
+echo "si";
+}
 ?>

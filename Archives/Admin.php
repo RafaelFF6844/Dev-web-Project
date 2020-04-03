@@ -34,16 +34,15 @@ $conn = mysqli_connect(
     <title>Administrador</title>
 
     <style type="text/css">
-        #global {
+        .global {
 	        height: 270px;
 	        width: auto;
 	        border: 1px solid #ddd;
-	        background: #f1f1f1;
-	        overflow-y: scroll;
+            overflow-y: scroll;
         }
     </style>
 </head>
-<body> 
+<body class="d-flex flex-column"> 
     <?php 
         if(isset($_SESSION['status'])){
             if($_SESSION['status'] == 'failed'){
@@ -51,29 +50,29 @@ $conn = mysqli_connect(
             }
         }
     ?>
-<div class="page-header">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
-        </li>
-        
-        <li class="nav-item nav-lejos">
-            <a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Ingresar as Admin</a>
-        </li>
-    </ul>
-</div>
+    
+    <div class="page-header" style="background-color: #f1f1f1">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
+            </li>
+            <li class="nav-item nav-lejos">
+                <a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Ingresar as Admin</a>
+            </li>
+        </ul>
+    </div>
     
     <?php if(isset($_SESSION['message1'])) { ?>
     <div class="alert alert-<?php echo $_SESSION['message-type'] ?> alert-dismissible fade show" role="alert">
@@ -86,7 +85,7 @@ $conn = mysqli_connect(
     <?php } ?>
 
     <!-- Botones -->
-    <div align = "center" style="margin-left: 37%">
+    <div align = "center" style="margin-left: 37%; margin-top:10px" >
        <div style="float: left" align="center"> 
             <a class="btn btn-info" onclick="edit()" data-toggle="modal" data-target="#Modal2">
                 <i class="far fa-newspaper fa-2x" id="news"></i><br>
@@ -100,18 +99,18 @@ $conn = mysqli_connect(
             </a>
        </div>
        <div style="float: left">
-            <a class="btn btn-info" onclick="edit2()" data-toggle="modal" data-target="#Modal3">
-                <i class="fas fa-users fa-2x"></i></i><br>
-                <font size="3" id="fcases">Agregar caso</font>       
+            <a class="btn btn-info" onclick="edit3()">
+                <i class="fas fa-users fa-2x" id="users"></i><br>
+                <font size="3" id="fusers">Agregar Usuario</font>       
             </a>
        </div>
     </div>
 
-    <!-- Casos -->
-    <div align = "center" id="global" style="float: left;position:fixed; margin-left:750px; margin-top: 150px">
+    <!-- Tabla Casos -->
+    <div align = "center" class="global" style="position: absolute;float: left; margin-left:750px; margin-top: 200px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
-                <tr class="table-active"><th scope="col" colspan="5" style="text-align: center"><a >Casos</a></td></tr>
+            <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Casos</a></td></tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Cedula</th>
                 <th scope="col">Ubicacion</th>
@@ -130,10 +129,10 @@ $conn = mysqli_connect(
                     <td><?php echo $row['Ciudad'] . ", " . $row['Pais']?></td>
                     <td><?php echo $row['Comentario']?></td>
                     <td>
-                        <a class="btn btn-danger" onclick="eliminar(<?php echo $row['ID'] ?>)">
+                        <a class="btn btn-danger" onclick="window.location.href='action_page.php?idB=<?php echo $row['ID']?>'">
                             <i class="fas fa-trash-alt"></i><br>
                         </a> 
-                        <a class="btn btn-info" onclick="editar(<?php echo $row['ID'] ?>)">
+                        <a class="btn btn-info" onclick="window.location.href='action_page.php?idE=<?php echo $row['ID']?>'">
                             <i class="fas fa-pencil-alt"></i>
                         </a> 
                     </td>
@@ -143,8 +142,8 @@ $conn = mysqli_connect(
         </table>
     </div>
 
-    <!-- Noticias -->
-    <div align = "center" id="global" style="float: left; margin-left: 50px; position:fixed; margin-top: 150px">
+    <!-- Tabla Noticias -->
+    <div align = "center" class="global" style="position: absolute;float: left; margin-left: 50px; margin-top: 200px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
                 <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Noticias</a></td></tr>
@@ -207,9 +206,9 @@ $conn = mysqli_connect(
         </form>
     </div>
 
-    <!-- Modal2 -->
+    <!-- Modal Noticia -->
     <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form class="modal-content animate" method="POST" style="width: 33%; height: 90%">
+        <form class="modal-content animate" action="action_page.php" method="POST" style="width: 33%; height: 90%" id="FrmNtc" name="FrmNtc">
             <div class="modal-dialog" role="document" style="width: 100%">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -222,24 +221,26 @@ $conn = mysqli_connect(
                     <div class="modal-body">
                         <h5 align="left">Titulo:</h5>
                         <div class="input-group mb-3"> 
-                            <input type="text" class="form-control" placeholder="Titulo">
+                            <input type="text" class="form-control" placeholder="Titulo" name="Titulo"></input>
                         </div>
  
                         <h5 align="left">Resumen:</h5>
                         <div class="input-group">
-                            <textarea class="form-control" placeholder="Resumen" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="Resumen" name="Resumen" rows="3"></textarea>
                         </div>
                      
                         <h5 align="left">Foto:</h5>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input"  id = "foto" aria-describedby="inputGroupFileAddon01" accept="image/png, .jpeg, .jpg, image/gif" onchange="testData(event)">
-                            <label class="custom-file-label" for="inputGroupFile01" >Choose file</label>
+                            <input type="file" class="custom-file-input" id = "foto" aria-describedby="inputGroupFileAddon01" accept="image/png, .jpeg, .jpg, image/gif" onchange="testData(event)">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            <button onclick="Saver()" class="btn btn-primary" >Guardar imagen</button><br>
+                            <a id="Fotos" name="Foto"></a>
                         </div>
                 
                         <h5 align="left">Contenido:</h5>
                         <div class="input-group">
-                            <textarea class="form-control" placeholder="Noticia" rows="4"></textarea>
-                            <button type="submit" name="GuardarNoticia" id="GuardarNoticia" class="btn btn-success btn-block">Guardar</button>
+                            <textarea class="form-control" placeholder="Noticia" rows="4" name="Contenido"></textarea>
+                            <button type="button" name="GuardarNoticia" id="GuardarNoticia" class="btn btn-success btn-block" onclick="Saver()">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -247,7 +248,7 @@ $conn = mysqli_connect(
         </form>
     </div>
     
-    <!-- Modal3 -->
+    <!-- Modal casos -->
     <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="width: 100%;">
             <div class="modal-content">        
@@ -305,7 +306,6 @@ $conn = mysqli_connect(
             </div>
         </div>
     </div>
-
     <script>
     var modal = document.getElementById('id01');
     window.onclick = function(event) {
@@ -317,18 +317,51 @@ $conn = mysqli_connect(
         console.log(event.target.files[0]);
     }
     function edit(){
-        document.getElementById('news').className='far fa-newspaper fa-6x';
+        document.getElementById('news').className='far fa-newspaper fa-5x';
         document.getElementById('fnews').size='4';
  
         document.getElementById('cases').className='far fa-address-card fa-3x';
         document.getElementById('fcases').size='1'
+
+        document.getElementById('users').className='fas fa-users fa-3x';
+        document.getElementById('fusers').size='1'
     }
     function edit2(){
-        document.getElementById('cases').className='far fa-address-card fa-6x';
+        document.getElementById('cases').className='far fa-address-card fa-5x';
         document.getElementById('fcases').size='4';
 
-        document.getElementById('news').className='far fa-newspaper fa-x';
+        document.getElementById('news').className='far fa-newspaper fa-3x';
         document.getElementById('fnews').size='1';
+
+        document.getElementById('users').className='fas fa-users fa-3x';
+        document.getElementById('fusers').size='1'  
+    }
+    function edit3(){
+        document.getElementById('id01').style.display='block'
+
+        document.getElementById('users').className='fas fa-users fa-5x';
+        document.getElementById('fusers').size='4' 
+
+        document.getElementById('cases').className='far fa-address-card fa-3x';
+        document.getElementById('fcases').size='1';
+
+        document.getElementById('news').className='far fa-newspaper fa-3x';
+        document.getElementById('fnews').size='1';
+ 
+    }
+    function Saver(){
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+        var form = document.getElementById('FrmNtc');
+
+        reader.addEventListener("load", function () {
+            document.getElementById('Fotos').value = reader.result;
+            form.submit();          
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     }
     </script>
 </body>
