@@ -54,7 +54,7 @@ $x=-1;
         </li>
         
         <li class="nav-item nav-lejos">
-            <a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Ingresar as Admin</a>
+            <button class="btn btn-success nav-link" onclick="login()" style="width: 100px">Login</button>
         </li>
     </ul>
 </div>
@@ -98,6 +98,59 @@ $x=-1;
         
 </div>
 <script src="Archives\map.js"></script>
+
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="Archives\action_page.php" method="POST" style="width: 30%">
+            <div class="imgcontainer">
+                <h3>Administrador</h3>
+                <img src="Resources\avatar.png" alt="Avatar" class="avatar" style="width: 25%">
+            </div>
+
+            <div class="container">
+                <label for="Usuario"><b>Usuario</b></label>
+                <input type="text" class="imputE" placeholder="Introduzca el usuario" name="Usuario" required>
+                <br>
+                <label for="Contra"><b>Contraseña</b></label>
+                <input type="password" class="imputE" placeholder="Introduzca la contraseña" name="Contra" required>
+
+                <button type="submit" class="btn btn-success" name="Login">Ingresar</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+    var modal = document.getElementById('id01');
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    function login(){
+        <?php if(!empty($_SESSION['status'])){ ?>
+            var bool = '<?php echo $_SESSION['status']?>';
+        <?php }
+        else{?>
+            var bool = 'failed';
+        <?php } ?>
+         
+        if(bool == "success"){
+            alert("el usuario ya ha ingresado");
+        } 
+        else if(bool = "failed" || bool == null){
+            document.getElementById('id01').style.display='block';
+        }
+    }
+    </script>
 
 </body>
 </html>
