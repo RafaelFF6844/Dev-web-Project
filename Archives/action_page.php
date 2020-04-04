@@ -210,4 +210,30 @@ if(isset($_GET['idBn'])){
  
     header("Location:Admin.php");
 }
+
+if(isset($_GET['idU'])){
+    $id = $_GET['idU'];
+    $query = "delete from usuarios where id = $id";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query failed");
+    }
+ 
+    header("Location:Admin.php");
+}
+
+if(isset($_POST['Euser'])){
+    $id = $_POST['ide'];
+    $User = $_POST['Nuser'];
+    $Contra = $_POST['Ncontra'];
+    $query = "update usuarios set Correo = '$User', Clave = '$Contra' where id = $id";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query failed");
+    }
+ 
+    header("Location:Admin.php");
+}
 ?>

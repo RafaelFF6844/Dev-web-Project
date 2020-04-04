@@ -20,15 +20,12 @@ $conn = mysqli_connect(
    
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   
+    
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!--JQuery-->
-    <script type="text/javascript" src="../Resources/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
    
     <!--Titulo-->
     <title>Administrador</title>
@@ -50,7 +47,7 @@ $conn = mysqli_connect(
             }
         }
     ?>
-    
+    <!-- Nav Bar -->
     <div class="page-header" style="background-color: #f1f1f1">
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -85,14 +82,14 @@ $conn = mysqli_connect(
     <?php } ?>
 
     <!-- Botones -->
-    <div align = "center" style="margin-left: 37%; margin-top:10px" >
+    <div align = "center" style="margin-left: 27%; margin-top:10px" >
        <div style="float: left" align="center"> 
             <a class="btn btn-info" onclick="edit()" data-toggle="modal" data-target="#Modal2">
                 <i class="far fa-newspaper fa-2x" id="news"></i><br>
                 <font size="3" id="fnews">Agregar noticia</font>
             </a>
        </div>
-           <div style="float: left">
+        <div style="float: left">
             <a class="btn btn-warning" onclick="edit2()" data-toggle="modal" data-target="#Modal3">
                 <i class="far fa-address-card fa-2x" id="cases"></i><br>
                 <font size="3" id="fcases">Agregar caso</font>       
@@ -104,10 +101,16 @@ $conn = mysqli_connect(
                 <font size="3" id="fusers">Agregar Usuario</font>       
             </a>
        </div>
+       <div style="float: left">
+            <a class="btn btn-warning" onclick="edit4()" data-toggle="modal" data-target="#Modal4">
+                <i class="fas fa-users fa-2x" id="Guser"></i><br>
+                <font size="3" id="fguser">Gestor Usuario</font>       
+            </a>
+       </div>
     </div>
 
     <!-- Tabla Casos -->
-    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left:800px; margin-top: 200px">
+    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left:800px; margin-top: 230px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
             <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Casos</a></td></tr>
@@ -140,7 +143,7 @@ $conn = mysqli_connect(
     </div>
 
     <!-- Tabla Noticias -->
-    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left: 50px; margin-top: 200px">
+    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left: 50px; margin-top: 230px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
                 <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Noticias</a></td></tr>
@@ -270,7 +273,7 @@ $conn = mysqli_connect(
                         </div> 
                         <div class="form-group">
                             <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Nombre" autofocus>
-                         </div>
+                        </div>
                         <div class="form-group">
                             <input type="text" name="Apellido" id="Apellido" class="form-control" placeholder="Apellido" autofocus>
                         </div>
@@ -302,6 +305,81 @@ $conn = mysqli_connect(
             </div>
         </div>
     </div>
+
+    <!-- Modal Gestor usuarios -->
+    <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <form class="modal-content animate" action="action_page.php" method="POST" style="width: 16%; height: 50%">
+            <div class="modal-dialog" role="document" style="width: 100%">
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align: center"> 
+                        <h4 class="modal-title" id="exampleModalLabel" align="center">Gestor usuario</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table" style="width: auto; text-align: center;" align="center">
+                        <thead>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Eliminar</th>
+                        </thead>
+                        <tbody class="table-striped">
+                            <?php 
+                                $querys = "select * from usuarios";
+                                $result_task = mysqli_query($conn, $querys);
+                                while($row = mysqli_fetch_array($result_task)){ 
+                            ?>    
+                            <tr>
+                                <td><?php echo $row['Correo']?></td>
+                                <td>
+                                    <a class="btn btn-danger" onclick="window.location.href='action_page.php?idB=<?php echo $row['ID']?>'">
+                                        <i class="fas fa-trash-alt"></i><br>
+                                    </a> 
+                                    <a class="btn btn-info" onclick="EditUser(<?php echo $row['ID']?>)">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a> 
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                       </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Modal Editor usuarios -->
+    <div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <form class="modal-content animate" action="action_page.php" method="POST" style="width: 16%; height: 50%">
+            <div class="modal-dialog" role="document" style="width: 100%">
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align: center"> 
+                        <h4 class="modal-title" id="exampleModalLabel" align="center">Gestor usuario</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h4 style="text-align: center" align = "center">Usuario:</h4>
+                            <input type="text" value = "" name="Nuser" id="Nuser" class="form-control" placeholder="Nuevo Usuario" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <h4 style="text-align: center" align = "center">Contraseña:</h4>
+                            <input type="text" value = "" name="Ncontra" id="Ncontra" class="form-control" placeholder="Nueva contraseña" autofocus>
+                            <input id="ide" name="ide" value="" style="display: none"></input>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" name="Euser" >Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
     var modal = document.getElementById('id01');
     window.onclick = function(event) {
@@ -321,6 +399,9 @@ $conn = mysqli_connect(
 
         document.getElementById('users').className='fas fa-users fa-3x';
         document.getElementById('fusers').size='1'
+
+        document.getElementById('Guser').className='fas fa-users fa-3x';
+        document.getElementById('fguser').size='1'
     }
     function edit2(){
         document.getElementById('cases').className='far fa-address-card fa-5x';
@@ -330,7 +411,10 @@ $conn = mysqli_connect(
         document.getElementById('fnews').size='1';
 
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1'  
+        document.getElementById('fusers').size='1' 
+
+        document.getElementById('Guser').className='fas fa-users fa-3x';
+        document.getElementById('fguser').size='1' 
     }
     function edit3(){
         document.getElementById('id01').style.display='block'
@@ -343,6 +427,23 @@ $conn = mysqli_connect(
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
         document.getElementById('fnews').size='1';
+
+        document.getElementById('Guser').className='fas fa-users fa-3x';
+        document.getElementById('fguser').size='1'
+ 
+    }
+    function edit4(){
+        document.getElementById('users').className='fas fa-users fa-3x';
+        document.getElementById('fusers').size='1' 
+
+        document.getElementById('cases').className='far fa-address-card fa-3x';
+        document.getElementById('fcases').size='1';
+
+        document.getElementById('news').className='far fa-newspaper fa-3x';
+        document.getElementById('fnews').size='1';
+
+        document.getElementById('Guser').className='fas fa-users fa-5x';
+        document.getElementById('fguser').size='4'
  
     }
     function Saver(){
@@ -368,6 +469,28 @@ $conn = mysqli_connect(
         } else if(element.msRequestFullscreen) {
             element.msRequestFullscreen();
         }
+    }
+    function EditUser(ID){
+        var usuarios = [];
+        var contra = [];
+
+        <?php 
+            $querys = "select * from usuarios";
+            $result_task = mysqli_query($conn, $querys);
+            $_SESSION['index'] = 0;
+            while($row = mysqli_fetch_array($result_task)){ 
+        ?>
+            usuarios[<?php echo $_SESSION['index'] ?>] = "<?php echo $row['Correo']?>";
+            contra[<?php echo $_SESSION['index'] ?>] = "<?php echo $row['Clave']?>";
+        <?php 
+            $_SESSION['index'] += 1; 
+        } ?>
+        document.getElementById('Nuser').value = usuarios[ID-1];
+        document.getElementById('Ncontra').value = contra[ID-1];
+        document.getElementById('ide').value = ID;
+        $('#Modal4').modal('hide');
+        $('#Modal5').modal('toggle');
+        $('#Modal5').modal('show');
     }
     </script>
 </body>
