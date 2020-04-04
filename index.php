@@ -1,3 +1,14 @@
+<?php
+
+$conexion = mysqli_connect("localhost","root","123","proyecto");
+$consultar="SELECT * FROM casos";
+$query= mysqli_query($conexion,$consultar);
+$array=mysqli_fetch_array($query);
+
+$x=-1;
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +26,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!--JQuery-->
-    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="Archives\jquery-3.4.1.min.js"></script>
+    <!--MapBox-->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
    
 
     <title>Inicio</title>
@@ -49,11 +63,41 @@
 
 <div id="page-content" >
 
-    
+    <div id="map"></div>
 
+    <div style="display:none;">
+        <?php
+        foreach ($query as $row){ ?>
+                    <?php $y=$x+1?>
+
+
+       
+            <p id='i<?php echo $y; ?>'><?php echo $row['ID']; ?></p>
+            <p id='c<?php echo $y; ?>'><?php echo $row['Cedula']; ?></p>
+            <p id='n<?php echo $y; ?>'><?php echo $row['Nombre']; ?></p>
+            <p id='a<?php echo $y; ?>'><?php echo $row['Apellido']; ?></p>
+            <p id='na<?php echo $y; ?>'><?php echo $row['Nacimiento']; ?></p>
+            <p id='pa<?php echo $y; ?>'><?php echo $row['Pais']; ?></p>
+            <p id='ci<?php echo $y; ?>'><?php echo $row['Ciudad']; ?></p>
+            <p id='la<?php echo $y; ?>'><?php echo $row['Latitud']; ?></p>
+            <p id='lo<?php echo $y; ?>'><?php echo $row['Longitud']; ?></p>
+            <p id='co<?php echo $y; ?>'><?php echo $row['Contagio']; ?></p>       
+            <p id='com<?php echo $y; ?>'><?php echo $row['Comentario']; ?></p>            
+    
+            <?php $x=$y?>
 
         
+
+  
+    <?php
+        }
+    ?>
+    </div>
+
+<p id='contador' style="display:none;"  value="<?php echo $x?>"><?php echo $x?></p>
+        
 </div>
+<script src="Archives\map.js"></script>
 
 </body>
 </html>
