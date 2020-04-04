@@ -49,7 +49,52 @@ if(isset($_POST['Register'])){
 }
 
 if(isset($_POST['GuardarNoticia'])){
-    echo "noticia";
+    $Foto = $_POST['FotosU'];
+    $Titulo = $_POST['Titulo'];
+    $Noticia = $_POST['Contenido'];
+    $Resumen = $_POST['Resumen'];
+    $bool = true;
+
+    $_SESSION['message'] = "Para guardar su noticia debe llenar";
+    if(empty($Titulo)){
+        $bool = false;
+        $_SESSION['message'] .= ", El titulo";
+    }
+    if(empty($Noticia)){
+        $bool = false;
+        $_SESSION['message'] .= ", la Noticia";
+    }
+    if(empty($Foto)){
+        $bool = false;
+        $_SESSION['message'] .= ", la foto";
+    }
+    if(empty($Resumen)){
+        $bool = false;
+        $_SESSION['message'] .= ", el resumen";
+    }
+    if($bool){
+        //guardar
+        $query = "INSERT INTO noticias(Titulo, Resumen, Foto, Noticia) VALUES ('$Titulo', '$Resumen', '$Foto', '$Noticia')";
+        $result = mysqli_query($conn, $query);
+
+        if(!$result){ 
+            $_SESSION['message-type'] = 'danger';
+            $_SESSION['message1'] .= "Datos no guardados";
+            header("Location: Admin.php");
+        }
+        else{
+            $_SESSION['message-type'] = 'success';
+            $_SESSION['message1'] .= "Datos guardados exitosamente";
+            header("Location: Admin.php");
+        }
+    }
+    else{
+        //no guardar
+        $_SESSION['message-type'] = 'danger';
+        $_SESSION['message1'] .= "Caso no guardado";
+        header("Location: Admin.php");
+    }
+
 }
 
 if(isset($_POST['GuardarCaso'])){
@@ -153,7 +198,16 @@ if(isset($_GET['idE'])){
  
     header("Location:index.php");
 }
-if(isset($_POST['FrmNtc'])){
-echo "si";
+
+if(isset($_GET['idBn'])){
+    $id = $_GET['idBn'];
+    $query = "delete from noticias where id = $id";
+    $result = mysqli_query($conn, $query);
+
+    if(!$result){
+        die("Query failed");
+    }
+ 
+    header("Location:Admin.php");
 }
 ?>

@@ -107,7 +107,7 @@ $conn = mysqli_connect(
     </div>
 
     <!-- Tabla Casos -->
-    <div align = "center" class="global" style="position: absolute;float: left; margin-left:750px; margin-top: 200px">
+    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left:800px; margin-top: 200px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
             <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Casos</a></td></tr>
@@ -115,7 +115,7 @@ $conn = mysqli_connect(
                 <th scope="col">Cedula</th>
                 <th scope="col">Ubicacion</th>
                 <th scope="col">Comentario</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Eliminar</th>
             </thead>
             <tbody class="table-striped">
                 <?php 
@@ -132,9 +132,6 @@ $conn = mysqli_connect(
                         <a class="btn btn-danger" onclick="window.location.href='action_page.php?idB=<?php echo $row['ID']?>'">
                             <i class="fas fa-trash-alt"></i><br>
                         </a> 
-                        <a class="btn btn-info" onclick="window.location.href='action_page.php?idE=<?php echo $row['ID']?>'">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a> 
                     </td>
                 </tr>
             <?php } ?>
@@ -143,32 +140,32 @@ $conn = mysqli_connect(
     </div>
 
     <!-- Tabla Noticias -->
-    <div align = "center" class="global" style="position: absolute;float: left; margin-left: 50px; margin-top: 200px">
+    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left: 50px; margin-top: 200px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
                 <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Noticias</a></td></tr>
+                <th scope="col">Foto</th>
                 <th scope="col">Titulo</th>
                 <th scope="col">Resumen</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Eliminar</th>
             </thead>
             <tbody class="table-striped">
                 <?php 
-                $querys = "select * from casos";
+                $querys = "select * from noticias";
                 $result_task = mysqli_query($conn, $querys);
 
                 while($row = mysqli_fetch_array($result_task)){ ?>    
                 <tr>
-                    <td><?php echo $row['Nombre'] . " " . $row['Apellido']?></td>
-                    <td><?php echo $row['Cedula']?></td>
-                    <td><?php echo $row['Ciudad'] . ", " . $row['Pais']?></td>
-                    <td><?php echo $row['Comentario']?></td>
+                    <td>  
+                        <div style="width: 200px">
+                            <img src="<?php echo $row['Foto']?>" style="width: 100%" id="img<?php echo $row['ID']?>" onclick="getFullscreen(document.getElementById('img<?php echo $row['ID']?>'))"></img>
+                        </div>
+                    </td>
+                    <td><?php echo $row['Titulo']?></td>
+                    <td><?php echo $row['Resumen']?></td>
                     <td>
-                        <a class="btn btn-danger" onclick="eliminar(<?php echo $row['ID'] ?>)">
+                        <a class="btn btn-danger" onclick="window.location.href='action_page.php?idBn=<?php echo $row['ID']?>'">
                             <i class="fas fa-trash-alt"></i><br>
-                        </a> 
-                        <a class="btn btn-info" onclick="editar(<?php echo $row['ID'] ?>)">
-                            <i class="fas fa-pencil-alt"></i>
                         </a> 
                     </td>
                 </tr>
@@ -231,16 +228,15 @@ $conn = mysqli_connect(
                      
                         <h5 align="left">Foto:</h5>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id = "foto" aria-describedby="inputGroupFileAddon01" accept="image/png, .jpeg, .jpg, image/gif" onchange="testData(event)">
+                            <input type="file" class="custom-file-input" id = "foto" aria-describedby="inputGroupFileAddon01" accept="image/png, .jpeg, .jpg, image/gif" onchange="Saver()">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                            <button onclick="Saver()" class="btn btn-primary" >Guardar imagen</button><br>
-                            <a id="Fotos" name="Foto"></a>
+                            <input type="text" id="Fotos" name="FotosU" value="" style="display: none"></input>
                         </div>
                 
                         <h5 align="left">Contenido:</h5>
                         <div class="input-group">
                             <textarea class="form-control" placeholder="Noticia" rows="4" name="Contenido"></textarea>
-                            <button type="button" name="GuardarNoticia" id="GuardarNoticia" class="btn btn-success btn-block" onclick="Saver()">Guardar</button>
+                            <button type="submit" name="GuardarNoticia" id="GuardarNoticia" class="btn btn-success btn-block" onclick="Saver()">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -356,11 +352,21 @@ $conn = mysqli_connect(
 
         reader.addEventListener("load", function () {
             document.getElementById('Fotos').value = reader.result;
-            form.submit();          
         }, false);
 
         if (file) {
             reader.readAsDataURL(file);
+        }
+    }
+    function getFullscreen(element){
+        if(element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if(element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if(element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if(element.msRequestFullscreen) {
+            element.msRequestFullscreen();
         }
     }
     </script>
