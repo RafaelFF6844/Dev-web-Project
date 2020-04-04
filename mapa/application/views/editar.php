@@ -109,7 +109,7 @@ if($map ->id >0){
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">LATITUD</span>
   </div>
-  <input type="text" name="latitud" required id="latitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Latitud" required id="Latitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 </hr>
 
@@ -119,7 +119,7 @@ if($map ->id >0){
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-lg">LONGITUD</span>
   </div>
-  <input type="text" name="logitud" required id="logitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+  <input type="text" name="Longitud" required id="Longitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 </hr>
 
@@ -166,13 +166,13 @@ if($map ->id >0){
 
   }).addTo(mymap);
 
-  function agrgar(latitud,logitud,id,description){
-  var marker = L.marker([latitud,logitud]).addTo(mymap);
+  function agrgar(Latitud,Longitud,ID,description){
+  var marker = L.marker([Latitud,Longitud]).addTo(mymap);
   marker.bindPopup("<b>Caso "+id+"!</b><br>"+description+".").openPopup();
   function onMapClick(e) {
       alert("Usted esta en RD " + e.latlng);
-      document.getElementById("latitud").value=e.latlng.lat.toString();
-        document.getElementById("logitud").value=e.latlng.lng.toString();
+      document.getElementById("Latitud").value=e.latlng.lat.toString();
+        document.getElementById("Longitud").value=e.latlng.lng.toString();
   }
   }
   
@@ -184,8 +184,8 @@ $rs = $CI->db->get('casos')->result_array();
 
 foreach($rs as $fila){
   echo "
-    var marker = L.marker([{$fila['latitud']},{$fila['logitud']}]).addTo(mymap);
-    marker.bindPopup('<b>Caso'+{$fila['id']}+'!</b><br>'+'{$fila['Comentario']}'+'.').openPopup();
+    var marker = L.marker([{$fila['Latitud']},{$fila['Longitud']}]).addTo(mymap);
+    marker.bindPopup('<b>Caso'+{$fila['ID']}+'!</b><br>'+'{$fila['Comentario']}'+'.').openPopup();
     function onMapClick(e) {
         alert('You clicked the map at ' + e.latlng);
     }
@@ -207,8 +207,8 @@ foreach($rs as $fila){
           .setLatLng(e.latlng)
           .setContent("Usted esta en RD "+e.latlng.toString())
           .openOn(mymap)
-          document.getElementById("latitud").value=e.latlng.lat.toString();
-            document.getElementById("logitud").value=e.latlng.lng.toString();
+          document.getElementById("Latitud").value=e.latlng.lat.toString();
+            document.getElementById("Longitud").value=e.latlng.lng.toString();
       }else{
         popup
           .setLatLng(e.latlng)

@@ -8,8 +8,8 @@ class wan_map{
   public $Nacimiento;
   public $Pais;
   public $Ciudad;
-  public $latitud;
-    public $logitud;
+  public $Latitud;
+    public $Longitud;
     public $Contagio;
     public $Comentario;
 

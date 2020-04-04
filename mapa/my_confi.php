@@ -3,7 +3,7 @@
 define('HOSTNAME','localhost');
 define('USERNAME','root');
 define('PASSWORD','');
-define('DATABASE','incidentes');
+define('DATABASE','proyecto');
 
 
 // DATOS PARA LA BASE
