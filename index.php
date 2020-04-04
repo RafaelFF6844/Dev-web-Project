@@ -1,6 +1,6 @@
 <?php
 
-$conexion = mysqli_connect("localhost","root","123","proyecto");
+$conexion = mysqli_connect("localhost","root","","proyecto");
 $consultar="SELECT * FROM casos";
 $query= mysqli_query($conexion,$consultar);
 $array=mysqli_fetch_array($query);

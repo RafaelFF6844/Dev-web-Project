@@ -54,7 +54,7 @@ $conn = mysqli_connect(
     <div class="page-header" style="background-color: #f1f1f1">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
+                <a class="nav-link" href="../index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
