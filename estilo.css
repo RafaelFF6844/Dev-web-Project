@@ -8,10 +8,8 @@ body{
   background: #ffffff;
 }
 
-#page-content{
-flex: 1 0 auto;
-background: #5CFF72;
-background: linear-gradient(to right, #5CFF72, #33AEFF);
+.page-header{
+background: rgb(255, 255, 255);
 }
 
 .nav-lejos{
@@ -26,8 +24,13 @@ margin-left: 25%;
 
 /* MapBox*/
 
-body { margin: 0; padding: 0; }
-#map {  top: 0; bottom: 0; width: 95%;; height: 60%;margin: 2%; }
+body { margin: 0;
+   padding: 0;
+   background: #5CFF72;
+  flex: 1 0 auto;
+  background: linear-gradient(to right, #5CFF72, #33AEFF);
+ }
+#map {  top: 0; bottom: 0; width: 95%; height: 70%;margin: 2%; }
 
 #marker {
     background-size: cover;
@@ -48,8 +51,18 @@ body { margin: 0; padding: 0; }
     .mapboxgl-popup {
     max-width: 200px;
     }
+/* Carrousel*/
+    #carouselExampleControls{
+      float: left;
+      margin: 2%;   
+      
+   
+    }
+    .img-carousel{
+      float: left;
+      height: 350px;
 
-
+    }
 
 /* FIN RAFA CSS */
 

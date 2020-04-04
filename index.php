@@ -5,6 +5,10 @@ $consultar="SELECT * FROM casos";
 $query= mysqli_query($conexion,$consultar);
 $array=mysqli_fetch_array($query);
 
+$consultar2="SELECT * FROM noticias";
+$query2= mysqli_query($conexion,$consultar2);
+$array2=mysqli_fetch_array($query2);
+
 $x=-1;
 
 
@@ -41,7 +45,7 @@ $x=-1;
             <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
+            <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
@@ -64,6 +68,37 @@ $x=-1;
 <div id="page-content" >
 
     <div id="map"></div>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  <?php
+        foreach ($query2 as $row){ ?>
+        
+    <div class="carousel-item active">
+        <img src="<?php echo $row['Foto']; ?>" class="img-carousel">
+        <div class="carousel-caption">
+            <h5><?php echo $row['Titulo']; ?></h5>
+            <p><?php echo $row['Resumen']; ?></p>
+        </div>
+    </div>
+    <?php
+        }
+    ?>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+<!-- CODIGO DE 2DO PLANO, HACEN FUNCIONES DE FONDO, NO GRAFICAS!, NO TOCAR! -->
 
     <div style="display:none;">
         <?php
