@@ -23,6 +23,7 @@ for(var x=0;x<=parseInt(cont);x++){
 
 
     }
+    
     datos.documentos.push(documento);
     
 
@@ -57,6 +58,13 @@ for( var y=0;y<=parseInt(cont);y++){
     // create DOM element for the marker
     var el = document.createElement('div');
     el.id = 'marker';
+    if((parseFloat(dato.latitud)>18.4718609 & parseFloat(dato.latitud)<19.9039990) & (parseFloat(dato.longitud)< -69.8923187 & parseFloat(dato.longitud)> -71.89231869999999)){
+        
+        el.style= 'background-image: url("http://173.249.49.169:88/api/test/foto/'+ dato.cedula+'")'; 
+    }else{
+        el.style= 'background-image: url("https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png")'; 
+
+    }
      
     // create the marker
     new mapboxgl.Marker(el)
@@ -64,4 +72,6 @@ for( var y=0;y<=parseInt(cont);y++){
     .setPopup(popup) // sets a popup on this marker
     .addTo(map);
 
+
+  
 }
