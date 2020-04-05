@@ -7,5 +7,9 @@
 </head>
 <body>
     <button onclick="window.location.href='pagina2.php?mensaje=hola mundo'">Enviar</button>
+    
 </body>
 </html>
+
+
+
