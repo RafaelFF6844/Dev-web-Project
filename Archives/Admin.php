@@ -348,6 +348,7 @@ $conn = mysqli_connect(
             </div>
         </form>
     </div>
+    
     <!-- Modal Editor usuarios -->
     <div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <form class="modal-content animate" action="action_page.php" method="POST" style="width: 16%; height: 50%">
