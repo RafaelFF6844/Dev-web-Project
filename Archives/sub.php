@@ -18,7 +18,7 @@ $x=-1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../estilo.css">
 
 <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -42,7 +42,7 @@ $x=-1;
 <div class="page-header">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
+            <a class="nav-link" href="../index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
@@ -51,7 +51,7 @@ $x=-1;
             <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="Archives\sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>
+            <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
@@ -67,73 +67,7 @@ $x=-1;
 
 <div id="page-content" >
 
-    <div id="map"></div>
-
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-  <?php
-        foreach ($query2 as $row){ ?>
-        
-    <div class="carousel-item active">
-        <img src="<?php echo $row['Foto']; ?>" class="img-carousel" onclick="window.location.href='Archives/News.php?idNot=<?php echo $row['ID']?>'">
-        <div class="carousel-caption">
-            <h5><?php echo $row['Titulo']; ?></h5>
-            <p><?php echo $row['Resumen']; ?></p>
-        </div>
-    </div>
-    <?php
-        }
-    ?>
-
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-
-
-<!-- CODIGO DE 2DO PLANO, HACEN FUNCIONES DE FONDO, NO GRAFICAS!, NO TOCAR! -->
-
-    <div style="display:none;">
-        <?php
-        foreach ($query as $row){ ?>
-                    <?php $y=$x+1?>
-
-
-       
-            <p id='i<?php echo $y; ?>'><?php echo $row['ID']; ?></p>
-            <p id='c<?php echo $y; ?>'><?php echo $row['Cedula']; ?></p>
-            <p id='n<?php echo $y; ?>'><?php echo $row['Nombre']; ?></p>
-            <p id='a<?php echo $y; ?>'><?php echo $row['Apellido']; ?></p>
-            <p id='na<?php echo $y; ?>'><?php echo $row['Nacimiento']; ?></p>
-            <p id='pa<?php echo $y; ?>'><?php echo $row['Pais']; ?></p>
-            <p id='ci<?php echo $y; ?>'><?php echo $row['Ciudad']; ?></p>
-            <p id='la<?php echo $y; ?>'><?php echo $row['Latitud']; ?></p>
-            <p id='lo<?php echo $y; ?>'><?php echo $row['Longitud']; ?></p>
-            <p id='co<?php echo $y; ?>'><?php echo $row['Contagio']; ?></p>       
-            <p id='com<?php echo $y; ?>'><?php echo $row['Comentario']; ?></p>            
     
-            <?php $x=$y?>
-
-        
-
-  
-    <?php
-        }
-    ?>
-    </div>
-
-<p id='contador' style="display:none;"  value="<?php echo $x?>"><?php echo $x?></p>
-        
-</div>
-<script src="Archives\map.js"></script>
 
 
 <!-- The Modal -->
@@ -145,7 +79,7 @@ $x=-1;
         <form class="modal-content animate" action="Archives\action_page.php" method="POST" style="width: 30%">
             <div class="imgcontainer">
                 <h3>Administrador</h3>
-                <img src="Resources\avatar.png" alt="Avatar" class="avatar" style="width: 25%">
+                <img src="../Resources\avatar.png" alt="Avatar" class="avatar" style="width: 25%">
             </div>
 
             <div class="container">
