@@ -51,8 +51,15 @@ for( var y=0;y<=parseInt(cont);y++){
 
 
     // create the popup
-    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-    'La cedula '+ dato.cedula+' fue contagiado el '+dato.contagio+', esta en el pais de '+dato.pais+', comentarios: '+dato.comentario
+    var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+    'La cedula '+ dato.cedula+' fue contagiado el '+dato.contagio+', esta en el pais de '+dato.pais+', comentarios: '+dato.comentario+
+    '<br>'+
+   ' <form style="border: 0px;" action="Archives/detalles.php" method="post">'+
+        '<input type="text" name="id" value="'+dato.id+'" style="display:none;"></input>'+
+        '<button class="btn btn-info">Ver Mas</button>'+
+    '</form>'
+  
+  
     );
      
     // create DOM element for the marker

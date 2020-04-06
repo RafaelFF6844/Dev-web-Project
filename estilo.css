@@ -26,6 +26,16 @@ margin-left: 25%;
   color: #ffffff;
   margin-left: 25%;
 }
+
+.formulario{
+  background: #ffffff;
+  margin: 2%;
+  padding: 1%;
+  border: 2px black solid;
+  border-radius: 2%;
+  width: 500px;
+  float: left;
+}
 /* MapBox*/
 
 body { margin: 0;
@@ -34,7 +44,7 @@ body { margin: 0;
   flex: 1 0 auto;
   background: linear-gradient(to right, #5CFF72, #33AEFF);
  }
-#map {  top: 0; bottom: 0; width: 95%; height: 75%;margin: 2%; }
+#map {  top: 0; bottom: 0; width: 95%; height: 125%;margin: 2%; }
 
 #marker {
     background-size: cover;
@@ -67,7 +77,35 @@ body { margin: 0;
       height: 332px;
 
     }
+/* MapBox 2*/
 
+body { margin: 0;
+  padding: 0;
+  background: #5CFF72;
+ flex: 1 0 auto;
+ background: linear-gradient(to right, #5CFF72, #33AEFF);
+}
+#map2 {  top: 0; bottom: 0; width: 55%; height: 60%;margin: 2%; float: left; border: 2px black solid; border-radius: 2%; }
+
+#marker2 {
+   background-size: cover;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   cursor: pointer;
+   }
+
+   .marker2 {
+       background-size: cover;
+       width: 50px;
+       height: 50px;
+       border-radius: 50%;
+       cursor: pointer;
+       }
+    
+   .mapboxgl-popup {
+   max-width: 200px;
+   }
 
 
 /* FIN RAFA CSS */
