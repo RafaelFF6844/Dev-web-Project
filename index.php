@@ -54,7 +54,7 @@ $x=-1;
             <a class="nav-link" href="Archives\sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
+            <a class="nav-link" href="grafico\Graficos.php"><i class="fas fa-chart-line"></i> Estadisticas</a>
         </li>
         
         <li class="nav-item nav-lejos">
