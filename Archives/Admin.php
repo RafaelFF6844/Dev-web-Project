@@ -39,7 +39,7 @@ $conn = mysqli_connect(
         }
     </style>
 </head>
-<body class="d-flex flex-column"> 
+<body class="d-flex flex-column" > 
     <?php 
         if(isset($_SESSION['status'])){
             if($_SESSION['status'] == 'failed'){
@@ -395,62 +395,75 @@ $conn = mysqli_connect(
     function testData(event) {
         console.log(event.target.files[0]);
     }
-    function edit(){
-        document.getElementById('news').className='far fa-newspaper fa-5x';
-        document.getElementById('fnews').size='4';
+    function solid(){
+        document.getElementById('news').className='far fa-newspaper fa-3x';
+        document.getElementById('fnews').size='3';
  
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1'
+        document.getElementById('fcases').size='3'
 
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1'
+        document.getElementById('fusers').size='3'
 
         document.getElementById('Guser').className='fas fa-users fa-3x';
-        document.getElementById('fguser').size='1'
+        document.getElementById('fguser').size='3'
+    }
+    function edit(){
+        document.getElementById('news').className='far fa-newspaper fa-5x';
+        document.getElementById('fnews').size='5';
+ 
+        document.getElementById('cases').className='far fa-address-card fa-3x';
+        document.getElementById('fcases').size='3'
+
+        document.getElementById('users').className='fas fa-users fa-3x';
+        document.getElementById('fusers').size='3'
+
+        document.getElementById('Guser').className='fas fa-users fa-3x';
+        document.getElementById('fguser').size='3'
 
         document.getElementById('select').value = 'guardar';
     }
     function edit2(){
         document.getElementById('cases').className='far fa-address-card fa-5x';
-        document.getElementById('fcases').size='4';
+        document.getElementById('fcases').size='5';
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
-        document.getElementById('fnews').size='1';
+        document.getElementById('fnews').size='3';
 
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1' 
+        document.getElementById('fusers').size='3' 
 
         document.getElementById('Guser').className='fas fa-users fa-3x';
-        document.getElementById('fguser').size='1' 
+        document.getElementById('fguser').size='3' 
     }
     function edit3(){
         document.getElementById('id01').style.display='block'
 
         document.getElementById('users').className='fas fa-users fa-5x';
-        document.getElementById('fusers').size='4' 
+        document.getElementById('fusers').size='5' 
 
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1';
+        document.getElementById('fcases').size='3';
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
-        document.getElementById('fnews').size='1';
+        document.getElementById('fnews').size='3';
 
         document.getElementById('Guser').className='fas fa-users fa-3x';
-        document.getElementById('fguser').size='1'
+        document.getElementById('fguser').size='3'
  
     }
     function edit4(){
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1' 
+        document.getElementById('fusers').size='3' 
 
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1';
+        document.getElementById('fcases').size='3';
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
-        document.getElementById('fnews').size='1';
+        document.getElementById('fnews').size='3';
 
         document.getElementById('Guser').className='fas fa-users fa-5x';
-        document.getElementById('fguser').size='4'
+        document.getElementById('fguser').size='5'
  
     }
     function Saver(){
