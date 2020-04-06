@@ -49,12 +49,13 @@ if(isset($_POST['Register'])){
 }
 
 if(isset($_POST['GuardarNoticia'])){
+    
     $Foto = $_POST['FotosU'];
     $Titulo = $_POST['Titulo'];
     $Noticia = $_POST['Contenido'];
     $Resumen = $_POST['Resumen'];
     $bool = true;
-
+    if($_POST['select'] == 'guardar'){   
     $_SESSION['message'] = "Para guardar su noticia debe llenar";
     if(empty($Titulo)){
         $bool = false;
@@ -93,6 +94,15 @@ if(isset($_POST['GuardarNoticia'])){
         $_SESSION['message-type'] = 'danger';
         $_SESSION['message1'] .= "Caso no guardado";
         header("Location: Admin.php");
+    }
+    }else{
+       $ID = $_POST['select'];
+       $query = "update noticias set Titulo = '$Titulo', Resumen = '$Resumen', Foto = '$Foto', Noticia = '$Noticia' where id = $ID";
+       $result = mysqli_query($conn, $query);
+
+       $_SESSION['message-type'] = 'success';
+       $_SESSION['message1'] .= "Datos actualizados exitosamente";
+       header("Location: Admin.php");
     }
 
 }

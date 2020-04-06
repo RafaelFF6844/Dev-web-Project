@@ -39,7 +39,7 @@ $conn = mysqli_connect(
         }
     </style>
 </head>
-<body class="d-flex flex-column"> 
+<body class="d-flex flex-column" > 
     <?php 
         if(isset($_SESSION['status'])){
             if($_SESSION['status'] == 'failed'){
@@ -170,6 +170,9 @@ $conn = mysqli_connect(
                         <a class="btn btn-danger" onclick="window.location.href='action_page.php?idBn=<?php echo $row['ID']?>'">
                             <i class="fas fa-trash-alt"></i><br>
                         </a> 
+                        <a class="btn btn-info" onclick="EditNotice(<?php echo $row['ID']?>)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a> 
                     </td>
                 </tr>
             <?php } ?>
@@ -221,12 +224,12 @@ $conn = mysqli_connect(
                     <div class="modal-body">
                         <h5 align="left">Titulo:</h5>
                         <div class="input-group mb-3"> 
-                            <input type="text" class="form-control" placeholder="Titulo" name="Titulo"></input>
+                            <input type="text" class="form-control" placeholder="Titulo" value="" id="Titulo" name="Titulo"></input>
                         </div>
  
                         <h5 align="left">Resumen:</h5>
                         <div class="input-group">
-                            <textarea class="form-control" placeholder="Resumen" name="Resumen" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="Resumen" value="" id="Resumen" name="Resumen" rows="3"></textarea>
                         </div>
                      
                         <h5 align="left">Foto:</h5>
@@ -234,11 +237,12 @@ $conn = mysqli_connect(
                             <input type="file" class="custom-file-input" id = "foto" aria-describedby="inputGroupFileAddon01" accept="image/png, .jpeg, .jpg, image/gif" onchange="Saver()">
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             <input type="text" id="Fotos" name="FotosU" value="" style="display: none"></input>
+                            <input type="text" id="select" name="select" value="guardar" style="display: none"></input>
                         </div>
                 
                         <h5 align="left">Contenido:</h5>
                         <div class="input-group">
-                            <textarea class="form-control" placeholder="Noticia" rows="4" name="Contenido"></textarea>
+                            <textarea class="form-control" id="Noticia" placeholder="Noticia" rows="4" name="Contenido"></textarea>
                             <button type="submit" name="GuardarNoticia" id="GuardarNoticia" class="btn btn-success btn-block" onclick="Saver()">Guardar</button>
                         </div>
                     </div>
@@ -348,6 +352,7 @@ $conn = mysqli_connect(
             </div>
         </form>
     </div>
+    
     <!-- Modal Editor usuarios -->
     <div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <form class="modal-content animate" action="action_page.php" method="POST" style="width: 16%; height: 50%">
@@ -390,60 +395,75 @@ $conn = mysqli_connect(
     function testData(event) {
         console.log(event.target.files[0]);
     }
-    function edit(){
-        document.getElementById('news').className='far fa-newspaper fa-5x';
-        document.getElementById('fnews').size='4';
+    function solid(){
+        document.getElementById('news').className='far fa-newspaper fa-3x';
+        document.getElementById('fnews').size='3';
  
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1'
+        document.getElementById('fcases').size='3'
 
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1'
+        document.getElementById('fusers').size='3'
 
         document.getElementById('Guser').className='fas fa-users fa-3x';
-        document.getElementById('fguser').size='1'
+        document.getElementById('fguser').size='3'
+    }
+    function edit(){
+        document.getElementById('news').className='far fa-newspaper fa-5x';
+        document.getElementById('fnews').size='5';
+ 
+        document.getElementById('cases').className='far fa-address-card fa-3x';
+        document.getElementById('fcases').size='3'
+
+        document.getElementById('users').className='fas fa-users fa-3x';
+        document.getElementById('fusers').size='3'
+
+        document.getElementById('Guser').className='fas fa-users fa-3x';
+        document.getElementById('fguser').size='3'
+
+        document.getElementById('select').value = 'guardar';
     }
     function edit2(){
         document.getElementById('cases').className='far fa-address-card fa-5x';
-        document.getElementById('fcases').size='4';
+        document.getElementById('fcases').size='5';
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
-        document.getElementById('fnews').size='1';
+        document.getElementById('fnews').size='3';
 
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1' 
+        document.getElementById('fusers').size='3' 
 
         document.getElementById('Guser').className='fas fa-users fa-3x';
-        document.getElementById('fguser').size='1' 
+        document.getElementById('fguser').size='3' 
     }
     function edit3(){
         document.getElementById('id01').style.display='block'
 
         document.getElementById('users').className='fas fa-users fa-5x';
-        document.getElementById('fusers').size='4' 
+        document.getElementById('fusers').size='5' 
 
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1';
+        document.getElementById('fcases').size='3';
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
-        document.getElementById('fnews').size='1';
+        document.getElementById('fnews').size='3';
 
         document.getElementById('Guser').className='fas fa-users fa-3x';
-        document.getElementById('fguser').size='1'
+        document.getElementById('fguser').size='3'
  
     }
     function edit4(){
         document.getElementById('users').className='fas fa-users fa-3x';
-        document.getElementById('fusers').size='1' 
+        document.getElementById('fusers').size='3' 
 
         document.getElementById('cases').className='far fa-address-card fa-3x';
-        document.getElementById('fcases').size='1';
+        document.getElementById('fcases').size='3';
 
         document.getElementById('news').className='far fa-newspaper fa-3x';
-        document.getElementById('fnews').size='1';
+        document.getElementById('fnews').size='3';
 
         document.getElementById('Guser').className='fas fa-users fa-5x';
-        document.getElementById('fguser').size='4'
+        document.getElementById('fguser').size='5'
  
     }
     function Saver(){
@@ -477,20 +497,44 @@ $conn = mysqli_connect(
         <?php 
             $querys = "select * from usuarios";
             $result_task = mysqli_query($conn, $querys);
-            $_SESSION['index'] = 0;
+            $_SESSION['index'] = 1;
             while($row = mysqli_fetch_array($result_task)){ 
         ?>
-            usuarios[<?php echo $_SESSION['index'] ?>] = "<?php echo $row['Correo']?>";
-            contra[<?php echo $_SESSION['index'] ?>] = "<?php echo $row['Clave']?>";
-        <?php 
-            $_SESSION['index'] += 1; 
-        } ?>
-        document.getElementById('Nuser').value = usuarios[ID-1];
-        document.getElementById('Ncontra').value = contra[ID-1];
+            usuarios[<?php echo $row['ID'] ?>] = "<?php echo $row['Correo']?>";
+            contra[<?php echo $row['ID'] ?>] = "<?php echo $row['Clave']?>";
+        <?php } ?>
+        document.getElementById('Nuser').value = usuarios[ID];
+        document.getElementById('Ncontra').value = contra[ID];
         document.getElementById('ide').value = ID;
         $('#Modal4').modal('hide');
         $('#Modal5').modal('toggle');
         $('#Modal5').modal('show');
+    }
+    function EditNotice(ID){
+        document.getElementById('select').value = ID;
+        var titulo = [];
+        var foto = [];
+        var resumen = [];
+        var contenido = [];
+
+        <?php 
+            $querys = "select * from noticias";
+            $result_task = mysqli_query($conn, $querys);
+            $_SESSION['index'] = 1;
+            while($row = mysqli_fetch_array($result_task)){ 
+        ?>
+            titulo[<?php echo $row['ID'] ?>] = "<?php echo $row['Titulo']?>";
+            foto[<?php echo $row['ID'] ?>] = "<?php echo $row['Foto']?>";
+            resumen[<?php echo $row['ID'] ?>] = "<?php echo $row['Resumen']?>";
+            contenido[<?php echo $row['ID'] ?>] = `<?php echo $row['Noticia']?>`;
+        <?php } ?>
+        document.getElementById('Titulo').value = titulo[ID];
+        document.getElementById('Resumen').value = resumen[ID];
+        document.getElementById('Noticia').value = String(contenido[ID]);
+        document.getElementById('Fotos').value = foto[ID];
+        alert(ID)
+        $('#Modal2').modal('toggle');
+        $('#Modal2').modal('show');
     }
     </script>
 </body>
