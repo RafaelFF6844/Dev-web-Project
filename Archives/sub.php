@@ -67,7 +67,7 @@ $x=-1;
 
     <img src="../Resources\telegram.png" class="img-sub">
     <div class="join-sub">
-        <p>!Unete atraves de este <a href="" class="">Link</a>!</p>
+        <p><i class="fab fa-telegram iconcolor-subs"></i> !Unete a traves de este <a href="" class="">Link</a>!</p>
     </div>
 
 
