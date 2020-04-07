@@ -19,15 +19,9 @@ for(var x=0;x<=parseInt(cont);x++){
         "longitud":document.getElementById('lo'+x).innerHTML,
         "contagio":document.getElementById('co'+x).innerHTML,
         "comentario":document.getElementById('com'+x).innerHTML,
-
-
-
     }
     
     datos.documentos.push(documento);
-    
-
-
 }
 
 

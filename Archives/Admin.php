@@ -49,7 +49,7 @@ if(isset($_SESSION['status']) == 'failed'){
     <?php 
         if(isset($_SESSION['status'])){
             if($_SESSION['status'] == 'failed'){
-                header("Location: index.php");
+                header("Location: ..\index.php");
             }
         }
     ?>
@@ -116,7 +116,7 @@ if(isset($_SESSION['status']) == 'failed'){
     </div>
 
     <!-- Tabla Casos -->
-    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left:800px; margin-top: 230px">
+    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left:825px; margin-top: 230px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
             <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Casos</a></td></tr>
@@ -135,8 +135,8 @@ if(isset($_SESSION['status']) == 'failed'){
                 <tr>
                     <td><?php echo $row['Nombre'] . " " . $row['Apellido']?></td>
                     <td><?php echo $row['Cedula']?></td>
-                    <td><?php echo $row['Ciudad'] . ", " . $row['Pais']?></td>
-                    <td><?php echo $row['Comentario']?></td>
+                    <td style="width: 200px"><?php echo $row['Ciudad'] . ", " . $row['Pais']?></td>
+                    <td style="width: 200px"><?php echo $row['Comentario']?></td>
                     <td>
                         <a class="btn btn-danger" onclick="window.location.href='action_page.php?idB=<?php echo $row['ID']?>'">
                             <i class="fas fa-trash-alt"></i><br>
@@ -149,13 +149,13 @@ if(isset($_SESSION['status']) == 'failed'){
     </div>
 
     <!-- Tabla Noticias -->
-    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left: 50px; margin-top: 230px">
+    <div align = "center" class="global" style="background-color: #f1f1f1;position: absolute;float: left; margin-left: 25px; margin-top: 230px">
         <table class="table" style="width: auto; text-align: center; ">
             <thead>
                 <tr class="table-primary"><th scope="col" colspan="5" style="text-align: center"><a>Noticias</a></td></tr>
                 <th scope="col">Foto</th>
                 <th scope="col">Titulo</th>
-                <th scope="col">Resumen</th>
+                <th scope="col" style="width: 200px">Resumen</th>
                 <th scope="col">Eliminar</th>
             </thead>
             <tbody class="table-striped">
@@ -170,8 +170,8 @@ if(isset($_SESSION['status']) == 'failed'){
                             <img src="<?php echo $row['Foto']?>" style="width: 100%" id="img<?php echo $row['ID']?>" onclick="getFullscreen(document.getElementById('img<?php echo $row['ID']?>'))"></img>
                         </div>
                     </td>
-                    <td><?php echo $row['Titulo']?></td>
-                    <td><?php echo $row['Resumen']?></td>
+                    <td style="width: 200px"><?php echo $row['Titulo']?></td>
+                    <td style="width: 200px"><?php echo $row['Resumen']?></td>
                     <td>
                         <a class="btn btn-danger" onclick="window.location.href='action_page.php?idBn=<?php echo $row['ID']?>'">
                             <i class="fas fa-trash-alt"></i><br>

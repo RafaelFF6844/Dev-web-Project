@@ -104,10 +104,7 @@ $x=-1;
     <div style="display:none;">
         <?php
         foreach ($query as $row){ ?>
-                    <?php $y=$x+1?>
-
-
-       
+            <?php $y=$x+1?>
             <p id='i<?php echo $y; ?>'><?php echo $row['ID']; ?></p>
             <p id='c<?php echo $y; ?>'><?php echo $row['Cedula']; ?></p>
             <p id='n<?php echo $y; ?>'><?php echo $row['Nombre']; ?></p>

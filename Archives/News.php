@@ -65,7 +65,7 @@
         </div>
         <div id="izquierda">
             <img src="<?php echo $row['Foto']?>" id="imagen"  align="right">    
-                <h4><?php echo $row['Noticia']?></h4>
+                <h4 id="Contenido" value = " "></h4>
             </img>
         </div> 
         <div id="derecha">
@@ -76,12 +76,16 @@
             while($row2 = mysqli_fetch_array($result2)){?>
                 <div onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'"> 
                 <img src="<?php echo $row2['Foto']?>" class="imgO"  align="left" onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'">
-                    <h5 onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'"><?php echo $row2['Titulo']?></h5> <br> <?php echo $row2['Resumen']?>
+                    <p onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'"> <?php echo $row2['Titulo']?> </p>
                 </img>
                 </div>
+                <br>
             <?php } ?>
         </div>
     </div>
+    <script>
+        document.getElementById('Contenido').innerHTML = `<?php echo $row['Noticia']?>`
+    </script>
         <?php }} ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
