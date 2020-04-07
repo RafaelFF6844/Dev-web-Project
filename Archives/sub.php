@@ -45,11 +45,9 @@ $x=-1;
             <a class="nav-link" href="../index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
+            <a class="nav-link" href="../mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
-        </li>
+        
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
         </li>
@@ -65,9 +63,12 @@ $x=-1;
 
 
 
-<div id="page-content" >
+<div id="page-content">
 
-    
+    <img src="../Resources\telegram.png" class="img-sub">
+    <div class="join-sub">
+        <p><i class="fab fa-telegram iconcolor-subs"></i> !Unete a traves de este <a href="https://t.me/covidlifex" class="">Link</a>!</p>
+    </div>
 
 
 <!-- The Modal -->

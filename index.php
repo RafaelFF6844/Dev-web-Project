@@ -5,9 +5,13 @@ $consultar="SELECT * FROM casos";
 $query= mysqli_query($conexion,$consultar);
 $array=mysqli_fetch_array($query);
 
-$consultar2="SELECT * FROM noticias";
+$consultar2="SELECT * FROM noticias where id=4";
 $query2= mysqli_query($conexion,$consultar2);
 $array2=mysqli_fetch_array($query2);
+
+$consultar3="SELECT * FROM noticias";
+$query3= mysqli_query($conexion,$consultar3);
+$array3=mysqli_fetch_array($query3);
 
 $x=-1;
 
@@ -47,9 +51,7 @@ $x=-1;
         <li class="nav-item">
             <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
-        </li>
+       
         <li class="nav-item">
             <a class="nav-link" href="Archives\sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>
         </li>
@@ -77,8 +79,22 @@ $x=-1;
     <div class="carousel-item active">
         <img src="<?php echo $row['Foto']; ?>" class="img-carousel" onclick="window.location.href='Archives/News.php?idNot=<?php echo $row['ID']?>'">
         <div class="carousel-caption">
-            <h5><?php echo $row['Titulo']; ?></h5>
-            <p><?php echo $row['Resumen']; ?></p>
+            <h5 class="title-news" ><?php echo $row['Titulo']; ?></h5>
+            
+        </div>
+    </div>
+    <?php
+        }
+    ?>
+
+<?php
+        foreach ($query3 as $row){ ?>
+        
+    <div class="carousel-item">
+        <img src="<?php echo $row['Foto']; ?>" class="img-carousel" onclick="window.location.href='Archives/News.php?idNot=<?php echo $row['ID']?>'">
+        <div class="carousel-caption">
+            <h5 class="title-news" ><?php echo $row['Titulo']; ?></h5>
+            
         </div>
     </div>
     <?php
