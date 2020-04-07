@@ -37,10 +37,7 @@
             <a class="nav-link" href="../index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
+            <a class="nav-link" href="../mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="../Archives\sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>

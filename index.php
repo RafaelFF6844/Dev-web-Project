@@ -47,9 +47,7 @@ $x=-1;
         <li class="nav-item">
             <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
-        </li>
+       
         <li class="nav-item">
             <a class="nav-link" href="Archives\sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>
         </li>

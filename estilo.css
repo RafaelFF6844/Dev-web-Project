@@ -44,7 +44,7 @@ body { margin: 0;
   flex: 1 0 auto;
   background: linear-gradient(to right, #5CFF72, #33AEFF);
  }
-#map {  top: 0; bottom: 0; width: 95%; height: 125%;margin: 2%; }
+#map {  top: 0; bottom: 0; width: 95%; height: 125%;margin: 2%;  border: 2px black solid; border-radius: 2%;  }
 
 #marker {
     background-size: cover;
@@ -75,6 +75,7 @@ body { margin: 0;
     .img-carousel{
       float: left;
       height: 332px;
+      border: 2px black solid; border-radius: 2%;
 
     }
 /* MapBox 2*/
