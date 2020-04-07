@@ -273,4 +273,9 @@ if(isset($_POST['Euser'])){
  
     header("Location:Admin.php");
 }
+
+if(isset($_GET['lgt'])){
+    $_SESSION['status'] = 'failed';
+    header("Location:Admin.php");
+}   
 ?>

@@ -7,6 +7,12 @@ $conn = mysqli_connect(
     'proyecto'
 );
 
+if(isset($_SESSION['status']) == 'failed'){
+    if ($_SESSION['status'] == 'failed'){
+        header("Location: Admin.php");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -65,8 +71,8 @@ $conn = mysqli_connect(
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
             </li>
-            <li class="nav-item nav-lejos">
-                <a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Ingresar as Admin</a>
+            <li class="nav-item nav-lejos" onclick="window.location.href='action_page.php?lgt=1'">
+                <a class="nav-link btn btn-danger" href="#" style="margin-top: 10px"><i class="fas fa-user-tie"></i>Cerrar sesion</a>
             </li>
         </ul>
     </div>
@@ -532,7 +538,6 @@ $conn = mysqli_connect(
         document.getElementById('Resumen').value = resumen[ID];
         document.getElementById('Noticia').value = String(contenido[ID]);
         document.getElementById('Fotos').value = foto[ID];
-        alert(ID)
         $('#Modal2').modal('toggle');
         $('#Modal2').modal('show');
     }
