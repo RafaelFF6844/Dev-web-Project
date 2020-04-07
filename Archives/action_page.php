@@ -15,7 +15,7 @@ if(isset($_POST['Login'])){
     
     if(!$result){
         $_SESSION['status'] = 'failed';
-        header("Location: index.php");
+        header("Location: ../index.php");
     }
     else{
         $nr = mysqli_num_rows($result);    
@@ -175,6 +175,33 @@ if(isset($_POST['GuardarCaso'])){
             $_SESSION['message-type'] = 'success';
             $_SESSION['message1'] .= "Datos guardados exitosamente";
             header("Location: Admin.php");
+
+            function getSslPage($url)
+            {
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+                curl_setopt($ch, CURLOPT_HEADER, false);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_REFERER, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                $result = curl_exec($ch);
+                return $result;
+            }
+
+            $apiToken = "1066250777:AAEmVzDzBtS74cF4TtCszojR2FoyuY-N9FI";
+            $mensaje="!Un nuevo Caso de Covid-19 ha sido DETECTADO!🔥
+             $Nombre $Apellido Fue puesto en cuarentena.
+             Pais: $Pais.
+             Para mas Casos Visite nuestra Web-Page.";
+
+            $data = [
+                'chat_id' => '@covidlifex',
+                'text' => $mensaje
+
+            ];
+            $response = getSslPage("https://api.telegram.org/bot$apiToken/sendMessage?".http_build_query($data) );
+            // Do what you want with result
         }
     }
     else{
