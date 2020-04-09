@@ -13,7 +13,7 @@ background: rgb(255, 255, 255);
 }
 
 .nav-lejos{
-margin-left: 25%;
+margin-left: 40%;
 }
 
 .nav-link{
@@ -35,6 +35,15 @@ margin-left: 25%;
   border-radius: 2%;
   width: 500px;
   float: left;
+
+}
+
+.minit{
+    font-size: 30px;
+    color: white;
+    font-family: monospace;
+    margin: 1%;
+    text-decoration: underline white; 
 }
 /* MapBox*/
 
@@ -44,7 +53,7 @@ body { margin: 0;
   flex: 1 0 auto;
   background: linear-gradient(to right, #5CFF72, #33AEFF);
  }
-#map {  top: 0; bottom: 0; width: 95%; height: 125%;margin: 2%;  border: 2px black solid; border-radius: 2%;  }
+#map {  top: 0; bottom: 0; width: 100%; height: 105%;   }
 
 #marker {
     background-size: cover;

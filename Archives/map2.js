@@ -37,6 +37,9 @@ zoom: 6
         el.style= 'background-image: url("https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png")'; 
 
     }
+
+    // Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
      
     // create the marker
     new mapboxgl.Marker(el)
