@@ -36,6 +36,8 @@ center: [-70.602898,18.796077],
 zoom: 6
 });
  
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
 
 
 //for gestion base de datos por medio de la tabla

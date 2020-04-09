@@ -65,8 +65,9 @@ $x=-1;
 </div>
 
 <div id="page-content" >
-
     <div id="map"></div>
+
+    <p class="minit"><i class="fas fa-newspaper"></i>Noticias</p>
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
