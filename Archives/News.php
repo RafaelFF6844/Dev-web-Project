@@ -64,7 +64,7 @@
                 <textarea id="Contenido" value = " " class="scroll" readonly></textarea>
             </img>
         </div> 
-        <div id="derecha">
+        <div id="derecha" >
             <h5>Otras noticias</h5><br>
             <?php
             $query2 = "select * from noticias where id <> $id  order by id desc limit 5";
