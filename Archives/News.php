@@ -35,21 +35,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="../index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
             </li>
+            
+        
             <li class="nav-item">
-                <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
+                <a class="nav-link" href="sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
+                <a class="nav-link" href="../grafico\Graficos.php"><i class="fas fa-chart-line"></i> Estadisticas</a>
             </li>
             <li class="nav-item nav-lejos">
-                <a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Ingresar as Admin</a>
-            </li>
+            <button class="btn btn-success nav-link" onclick="login()" style="width: 100px">Login</button>
+        </li>
         </ul>
     </div>
     <?php 
