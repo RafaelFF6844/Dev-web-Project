@@ -70,7 +70,7 @@ body, html{
 
 #Contenido{
     width: 83%; 
-    height: 500px; 
+    height: 100%; 
     background: transparent;
     color: black;
     resize: none;
@@ -79,3 +79,7 @@ body, html{
     font-weight: bold;
     outline: none;
 }
+
+.scroll::-webkit-scrollbar {
+    display: none;
+  }

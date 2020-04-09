@@ -64,8 +64,8 @@
             <h1><?php echo $row['Titulo']?></h1>
         </div>
         <div id="izquierda">
-            <img src="<?php echo $row['Foto']?>" id="imagen"  align="right">    
-                <textarea id="Contenido" value = " " readonly></textarea>
+            <img src="<?php echo $row['Foto']?>" id="imagen"  align="left">    
+                <textarea id="Contenido" value = " " class="scroll" readonly></textarea>
             </img>
         </div> 
         <div id="derecha">
