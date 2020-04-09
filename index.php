@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['status'] = 'failed';
 
 $conexion = mysqli_connect("localhost","root","","proyecto");
 $consultar="SELECT * FROM casos";
@@ -24,7 +26,7 @@ $x=-1;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
 
-<!--Bootstrap-->
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -64,8 +66,6 @@ $x=-1;
         </li>
     </ul>
 </div>
-
-
 
 <div id="page-content" >
 
@@ -155,7 +155,7 @@ $x=-1;
         class="close" title="Close Modal">&times;</span>
 
         <!-- Modal Content -->
-        <form class="modal-content animate" action="Archives\action_page.php" method="POST" style="width: 30%">
+        <form class="modal-content animate" action="Archives\Admin.php" method="POST" style="width: 30%">
             <div class="imgcontainer">
                 <h3>Administrador</h3>
                 <img src="Resources\avatar.png" alt="Avatar" class="avatar" style="width: 25%">
@@ -166,13 +166,12 @@ $x=-1;
                 <input type="text" class="imputE" placeholder="Introduzca el usuario" name="Usuario" required>
                 <br>
                 <label for="Contra"><b>Contraseña</b></label>
-                <input type="password" class="imputE" placeholder="Introduzca la contraseña" name="Contra" required>
-
-                <button type="submit" class="btn btn-success" name="Login">Ingresar</button>
+                <input type="password" class="imputE" placeholder="Introduzca la contraseña" name="Contra" required><br>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancelar</button>
+                <button type="submit" class="btn btn-success" name="Login">Ingresar</button>
             </div>
         </form>
     </div>

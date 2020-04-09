@@ -17,142 +17,18 @@ if($map ->id >0){
   }else{
          $CI->db->insert('casos',$map);
           $map->id=$CI->db->insert_id();
-    }
-
-
-
-
+  }
 }
 
 ?>
 
-
-
 <style>
     body {background-color: #4C94A3; }
-    </style>
+</style>
    
-<div class="container-fluid">
-<div class="table-bordered">
-<table class="table">
 
-<form method="post" action="">
-
-
-  <input type="hidden"  name='id'/>
-  <div class="text-right">
-  <button type = "submit" class="btn btn-primary">
-  <span class="spinner-border spinner-border-sm"></span>
-  Guardar
-  </button>
+  <div id="mapid" style=" height: 480px;">
   </div>
-</div>
-</div>
-<div class="col-xs-4">
-      <div class="input-group form-group-sm mb-3" >
-  <div class="input-group-prepend" >
-    <span class="input-group-text" id="inputGroup-sizing-default" >CEDULA</span>
-  </div>
-  <input type="text" name="Cedula" required id="Cedula" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
-
-</div>
-
-<div class="col-xs-4">
-      <div class="input-group form-group-sm mb-3" >
-  <div class="input-group-prepend" >
-    <span class="input-group-text" id="inputGroup-sizing-default" >Nombre</span>
-  </div>
-  <input type="text" name="Nombre" required id="Nombre" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
-
-</div>
-
-<div class="col-xs-4">
-      <div class="input-group form-group-sm mb-3" >
-  <div class="input-group-prepend" >
-    <span class="input-group-text" id="inputGroup-sizing-default" >Apellido</span>
-  </div>
-  <input type="text" name="Apellido" required id="Apellido" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
-
-</div>
-
-
-<div class="col-xs-4">
-      <div class="input-group form-group-sm mb-3" >
-  <div class="input-group-prepend" >
-    <span class="input-group-text" id="inputGroup-sizing-default" >Nacimiento</span>
-  </div>
-  <input type="date" name="Nacimiento" required id="Nacimiento" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
-
-</div>
-
-
-<div class="col-xs-4">
-      <div class="input-group form-group-sm mb-3" >
-  <div class="input-group-prepend" >
-    <span class="input-group-text" id="inputGroup-sizing-default" >Pais</span>
-  </div>
-  <input type="text" name="Pais" required id="Pais" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
-
-</div>
-
-<div class="col-xs-4">
-      <div class="input-group form-group-sm mb-3" >
-  <div class="input-group-prepend" >
-    <span class="input-group-text" id="inputGroup-sizing-default" >Ciudad</span>
-  </div>
-  <input type="text" name="Ciudad" required id="Ciudad" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-sm">
-
-</div>
- 
-<hr>
-  <div class="input-group input-group-lg">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">LATITUD</span>
-  </div>
-  <input type="text" name="Latitud" required id="Latitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-</div>
-</hr>
-
-
-<hr>
-  <div class="input-group input-group-lg">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">LONGITUD</span>
-  </div>
-  <input type="text" name="Longitud" required id="Longitud" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-</div>
-</hr>
-
-
-<hr>
-<div class="input-group input-group-lg">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">Contagio</span>
-  </div>
-  <input type="date" name="Contagio" required id="Contagio" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-</div>
-</hr>
-
-<hr>
-<div class="input-group input-group-lg">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg">Comentario</span>
-  </div>
-  <input type="text" name="Comentario" required id="Comentario" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-</div>
-
-</table>
-</div>
-
-
-
-
-
-
-<div id="mapid" style=" height: 480px;">
-  </div>
-  </hr>
-
   
   <script>
     var mymap = L.map('mapid').setView([18.47460, -70.01211], 13);
@@ -189,9 +65,6 @@ foreach($rs as $fila){
     function onMapClick(e) {
         alert('You clicked the map at ' + e.latlng);
     }
-  
-  
-  
   ";
   }
   

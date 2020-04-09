@@ -77,7 +77,7 @@ $x=-1;
         class="close" title="Close Modal">&times;</span>
 
         <!-- Modal Content -->
-        <form class="modal-content animate" action="Archives\action_page.php" method="POST" style="width: 30%">
+        <form class="modal-content animate" action="Admin.php" method="POST" style="width: 30%">
             <div class="imgcontainer">
                 <h3>Administrador</h3>
                 <img src="../Resources\avatar.png" alt="Avatar" class="avatar" style="width: 25%">
@@ -89,12 +89,11 @@ $x=-1;
                 <br>
                 <label for="Contra"><b>Contraseña</b></label>
                 <input type="password" class="imputE" placeholder="Introduzca la contraseña" name="Contra" required>
-
-                <button type="submit" class="btn btn-success" name="Login">Ingresar</button>
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancelar</button>
+                <button type="submit" class="btn btn-success" name="Login3">Ingresar</button>
             </div>
         </form>
     </div>

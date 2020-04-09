@@ -65,7 +65,7 @@
         </div>
         <div id="izquierda">
             <img src="<?php echo $row['Foto']?>" id="imagen"  align="right">    
-                <h4 id="Contenido" value = " "></h4>
+                <textarea id="Contenido" value = " " readonly></textarea>
             </img>
         </div> 
         <div id="derecha">
@@ -76,7 +76,7 @@
             while($row2 = mysqli_fetch_array($result2)){?>
                 <div onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'"> 
                 <img src="<?php echo $row2['Foto']?>" class="imgO"  align="left" onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'">
-                    <p onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'"> <?php echo $row2['Titulo']?> </p>
+                    <p style="text-align:left" onclick="window.location.href='News.php?idNot=<?php echo $row2['ID']?>'"> <?php echo $row2['Titulo']?> </p>
                 </img>
                 </div>
                 <br>

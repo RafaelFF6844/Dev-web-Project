@@ -7,12 +7,42 @@ $conn = mysqli_connect(
     'proyecto'
 );
 
-if(isset($_SESSION['status']) == 'failed'){
-    if ($_SESSION['status'] == 'failed'){
-        header("Location: Admin.php");
+$_SESSION['status'] = 'failed';
+
+if(isset($_POST['Login']) or isset($_POST['Login2']) or isset($_POST['Login3'])){
+    $Usuario = $_POST['Usuario'];
+    $Contra = $_POST['Contra'];
+    $query = "select * from usuarios where Correo = '$Usuario' and Clave = '$Contra'";
+    $result = mysqli_query($conn, $query);  
+    
+    if(!$result){
+        $_SESSION['status'] = 'failed';
+        if(isset($_POST['Login']))
+            header("Location: ../index.php");
+        else if(isset($_POST['Login2']))
+            header("Location: ../grafico/Graficos.php");
+        else if(isset($_POST['Login3']))
+            header("Location: sub.php");
+    }
+    else{
+        $nr = mysqli_num_rows($result);    
+        if($nr == 1){
+            $_SESSION['status'] = 'success';
+        }
     }
 }
 
+if(isset($_SESSION['status'])){
+    if ($_SESSION['status'] == 'failed'){
+        if(isset($_POST['Login']))
+            header("Location: ../index.php");
+        else if(isset($_POST['Login2']))
+            header("Location: ../grafico/Graficos.php");
+        else if(isset($_POST['Login3']))
+            header("Location: sub.php");
+        header("Location: ../index.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,28 +84,27 @@ if(isset($_SESSION['status']) == 'failed'){
         }
     ?>
     <!-- Nav Bar -->
-    <div class="page-header" style="background-color: #f1f1f1">
+    <div class="page-header">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="../index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
+                <a class="nav-link" href="index.php"><h2><i class="fas fa-globe-americas"></i>CoronaVirus-Life</h2></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=""><i class="fas fa-map-marked-alt"></i> Mapa</a>
+                <a class="nav-link" href="mapa\"><i class="fas fa-map-marked-alt"></i> Mapa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-newspaper"></i> Noticias</a>
+                <a class="nav-link" href="Archives\sub.php"><i class="fas fa-thumbs-up"></i> Subscribete</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Subscribete</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-chart-line"></i> Estadisticas</a>
+                <a class="nav-link" href="grafico\Graficos.php"><i class="fas fa-chart-line"></i> Estadisticas</a>
             </li>
             <li class="nav-item nav-lejos" onclick="window.location.href='action_page.php?lgt=1'">
-                <a class="nav-link btn btn-danger" href="#" style="margin-top: 10px"><i class="fas fa-user-tie"></i>Cerrar sesion</a>
+                <a class="nav-link btn btn-danger" href="#" style="margin-top: 10px">
+                <i class="fas fa-user-tie"></i>Cerrar sesion</a>
             </li>
         </ul>
     </div>
+
     
     <?php if(isset($_SESSION['message1'])) { ?>
     <div class="alert alert-<?php echo $_SESSION['message-type'] ?> alert-dismissible fade show" role="alert">
